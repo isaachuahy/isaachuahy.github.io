@@ -1,149 +1,265 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>[Your Name] - Data Scientist</title>
-    <!-- Tailwind CSS -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Isaac Hua - Data Scientist</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- AOS Library CSS for Animations -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-    <!-- Custom Styles (optional) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-      /* Custom scrollbar (optional) */
-      ::-webkit-scrollbar {
-        width: 8px;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: rgba(0, 0, 0, 0.2);
-        border-radius: 4px;
-      }
+        /* Use Inter font globally */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111827; /* bg-gray-900 */
+            color: #f3f4f6; /* text-gray-100 */
+        }
+        /* Simple fade-in animation */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Custom accent color (e.g., Teal) */
+        .accent-color {
+            color: #14b8a6; /* text-teal-500 */
+        }
+        .bg-accent-color {
+            background-color: #14b8a6; /* bg-teal-500 */
+        }
+        .border-accent-color {
+            border-color: #14b8a6; /* border-teal-500 */
+        }
+        .hover\:bg-accent-dark:hover {
+             background-color: #0f766e; /* hover:bg-teal-700 */
+        }
+         .hover\:text-accent-light:hover {
+             color: #5eead4; /* hover:text-teal-300 */
+        }
     </style>
-  </head>
-  <body class="bg-white text-gray-800 antialiased">
-    <!-- Header / Navigation -->
-    <header class="bg-gray-900 fixed w-full top-0 z-50 shadow-lg" data-aos="fade-down">
-      <nav class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-        <div class="text-white text-2xl font-semibold">[Your Name]</div>
-        <ul class="flex space-x-6">
-          <li><a href="#hero" class="text-gray-300 hover:text-white transition">Home</a></li>
-          <li><a href="#about" class="text-gray-300 hover:text-white transition">About</a></li>
-          <li><a href="#projects" class="text-gray-300 hover:text-white transition">Projects</a></li>
-          <li><a href="#contact" class="text-gray-300 hover:text-white transition">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
-    
-    <!-- Hero Section -->
-    <section id="hero" class="pt-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white min-h-screen flex items-center" data-aos="fade-up">
-      <div class="container mx-auto px-4 text-center">
-        <h1 class="text-4xl md:text-6xl font-bold mb-4" data-aos="zoom-in">Hello, I'm [Your Name]</h1>
-        <p class="text-xl md:text-2xl mb-8" data-aos="fade-up" data-aos-delay="200">
-          Data Scientist • Analyst • Machine Learning Enthusiast
-        </p>
-        <a href="#projects" class="bg-white text-blue-600 py-3 px-8 rounded-full shadow-lg hover:bg-gray-100 transition duration-300" data-aos="fade-up" data-aos-delay="400">
-          Explore My Work
-        </a>
-      </div>
-    </section>
-    
-    <!-- About Section -->
-    <section id="about" class="py-16">
-      <div class="max-w-5xl mx-auto px-4" data-aos="fade-right">
-        <h2 class="text-3xl font-bold mb-6 border-b-2 inline-block pb-2">About Me</h2>
-        <p class="text-lg leading-relaxed">
-          I am a data scientist passionate about unlocking insights from data to drive informed decisions. With years of hands-on experience in data analysis,
-          machine learning, and visualization, I transform raw data into strategic solutions that empower organizations. Whether it's predictive modeling or interactive data storytelling, my work is all about clarity, precision, and impact.
-        </p>
-      </div>
-    </section>
-    
-    <!-- Projects Section -->
-    <section id="projects" class="bg-gray-100 py-16">
-      <div class="max-w-7xl mx-auto px-4">
-        <h2 class="text-3xl font-bold mb-8 text-center" data-aos="fade-up">Projects &amp; Portfolio</h2>
-        <!-- Projects Grid -->
-        <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          <!-- Example Project Card -->
-          <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition transform hover:-translate-y-1" data-aos="flip-left">
-            <h3 class="text-2xl font-semibold mb-3">Project Title 1</h3>
-            <p class="mb-4">
-              A brief overview of your data science project—highlighting the problem, your approach, and the results achieved.
-            </p>
-            <a href="project-details.html" target="_blank" class="text-blue-600 hover:text-blue-800 transition font-medium">
-              Learn More
-            </a>
-          </div>
-          <!-- Add additional project cards similarly -->
-          <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition transform hover:-translate-y-1" data-aos="flip-left" data-aos-delay="100">
-            <h3 class="text-2xl font-semibold mb-3">Project Title 2</h3>
-            <p class="mb-4">
-              A brief insight into another project that shows your expertise and problem-solving skills using data.
-            </p>
-            <a href="project-details.html" target="_blank" class="text-blue-600 hover:text-blue-800 transition font-medium">
-              Learn More
-            </a>
-          </div>
-          <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition transform hover:-translate-y-1" data-aos="flip-left" data-aos-delay="200">
-            <h3 class="text-2xl font-semibold mb-3">Project Title 3</h3>
-            <p class="mb-4">
-              A succinct description of another exciting project where you applied advanced data science techniques.
-            </p>
-            <a href="project-details.html" target="_blank" class="text-blue-600 hover:text-blue-800 transition font-medium">
-              Learn More
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-    <!-- Contact Section -->
-    <section id="contact" class="py-16">
-      <div class="max-w-3xl mx-auto px-4" data-aos="fade-left">
-        <h2 class="text-3xl font-bold mb-6 border-b-2 inline-block pb-2">Contact Me</h2>
-        <form id="contactForm" action="https://formspree.io/f/yourformid" method="POST" class="space-y-6">
-          <input type="text" name="name" placeholder="Your Name" required
-            class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" />
-          <input type="email" name="email" placeholder="Your Email" required
-            class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" />
-          <textarea name="message" rows="5" placeholder="Your Message" required
-            class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-          <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded hover:bg-blue-700 transition duration-300">
-            Send Message
-          </button>
-        </form>
-      </div>
-    </section>
-    
-    <!-- Footer -->
-    <footer class="bg-gray-900 py-4">
-      <div class="max-w-7xl mx-auto px-4 text-center text-gray-400" data-aos="fade-up">
-        &copy; 2025 [Your Name]. All rights reserved.
-      </div>
-    </footer>
-    
-    <!-- Scripts -->
-    <!-- AOS Library JS for Animations -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-      AOS.init({
-        duration: 1000,
-        once: true,  // Animation happens only once during scroll
-      });
+</head>
+<body class="antialiased">
 
-      // Optional: Smooth scrolling behavior for navigation links
-      document.querySelectorAll('nav a').forEach((anchor) => {
-        anchor.addEventListener('click', function (e) {
-          e.preventDefault();
-          const targetID = this.getAttribute('href');
-          const targetElement = document.querySelector(targetID);
-          if (targetElement) {
-            targetElement.scrollIntoView({
-              behavior: 'smooth',
+    <header class="py-6 px-4 sm:px-6 lg:px-8 sticky top-0 z-50 bg-gray-900 bg-opacity-90 backdrop-blur-md">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">Isaac Hua</h1>
+            <nav>
+                <ul class="flex space-x-6">
+                    <li><a href="#about" class="hover:text-accent-light transition duration-300">About</a></li>
+                    <li><a href="#skills" class="hover:text-accent-light transition duration-300">Skills</a></li>
+                    <li><a href="#projects" class="hover:text-accent-light transition duration-300">Projects</a></li>
+                    <li><a href="#contact" class="hover:text-accent-light transition duration-300">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero" class="min-h-screen flex items-center justify-center text-center px-4 sm:px-6 lg:px-8 fade-in-section">
+        <div class="max-w-4xl">
+            <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-4">
+                Hi! I'm <span class="accent-color">Isaac Hua</span>
+            </h2>
+            <p class="text-xl sm:text-2xl text-gray-300 mb-8">
+                A passionate Data Scientist transforming data into actionable insights.
+            </p>
+            <a href="#projects" class="bg-accent-color text-white font-semibold py-3 px-8 rounded-lg shadow-md hover:bg-accent-dark transition duration-300 text-lg">
+                Explore My Work
+            </a>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 fade-in-section">
+        <div class="container mx-auto max-w-4xl text-center">
+            <h3 class="text-3xl sm:text-4xl font-bold mb-6">About Me</h3>
+            <div class="w-20 h-1 bg-accent-color mx-auto mb-10 rounded"></div>
+            <p class="text-lg text-gray-300 leading-relaxed mb-6">
+                Driven by curiousity and a love for problem-solving, I specialise in leveraging machine learning, statistical analysis and data visualisations to uncover hidden patterns and drive data-informed decisions. 
+                If you have a complex challenge that you'd like to tackle and are looking for a collaborative and reflective contributor - I'm your guy.
+            </p>
+            <p class="text-lg text-gray-300 leading-relaxed">
+                My most recent experience includes conducting processing, analysing and presenting data for Catholic Crosscultural Services under The BRIDGE to optimise the client experience for 
+                20+ service providers across Scarborough. I'm constantly exploring new techniques and technologies!
+            </p>
+        </div>
+    </section>
+
+    <section id="skills" class="py-20 sm:py-28 bg-gray-800 px-4 sm:px-6 lg:px-8 fade-in-section">
+        <div class="container mx-auto max-w-5xl text-center">
+            <h3 class="text-3xl sm:text-4xl font-bold mb-6">Skills</h3>
+             <div class="w-20 h-1 bg-accent-color mx-auto mb-12 rounded"></div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8">
+                <div class="flex flex-col items-center p-4 bg-gray-700 rounded-lg shadow-md">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mb-3 accent-color" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" /><path stroke-linecap="round" stroke-linejoin="round" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z" /></svg>
+                    <span class="font-semibold">Python</span>
+                </div>
+                 <div class="flex flex-col items-center p-4 bg-gray-700 rounded-lg shadow-md">
+                     <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mb-3 accent-color" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" /></svg>
+                    <span class="font-semibold">SQL</span>
+                </div>
+                 <div class="flex flex-col items-center p-4 bg-gray-700 rounded-lg shadow-md">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mb-3 accent-color" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+                    <span class="font-semibold">Data Viz</span>
+                </div>
+                 <div class="flex flex-col items-center p-4 bg-gray-700 rounded-lg shadow-md">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mb-3 accent-color" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                    <span class="font-semibold">Machine Learning</span>
+                </div>
+                 <div class="flex flex-col items-center p-4 bg-gray-700 rounded-lg shadow-md">
+                     <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mb-3 accent-color" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" /></svg>
+                    <span class="font-semibold">Statistics</span>
+                </div>
+                <!-- {/* Add more skills as needed */} -->
+                 <div class="flex flex-col items-center p-4 bg-gray-700 rounded-lg shadow-md">
+                     <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mb-3 accent-color" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
+                    <span class="font-semibold">Pandas</span>
+                </div>
+                 <div class="flex flex-col items-center p-4 bg-gray-700 rounded-lg shadow-md">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mb-3 accent-color" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                    <span class="font-semibold">Scikit-learn</span>
+                </div>
+                 <!-- <div class="flex flex-col items-center p-4 bg-gray-700 rounded-lg shadow-md">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mb-3 accent-color" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" /></svg>
+                    <span class="font-semibold">Cloud (AWS/GCP/Azure)</span>
+                </div> -->
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 fade-in-section">
+        <div class="container mx-auto max-w-6xl">
+            <h3 class="text-3xl sm:text-4xl font-bold text-center mb-6">Projects</h3>
+            <div class="w-20 h-1 bg-accent-color mx-auto mb-12 rounded"></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105">
+                    <img src="https://placehold.co/600x400/1f2937/9ca3af?text=Project+1+Image" alt="Project 1 Placeholder" class="w-full h-48 object-cover" onerror="this.src='https://placehold.co/600x400/1f2937/9ca3af?text=Image+Error'">
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold mb-2">Project Title One</h4>
+                        <p class="text-gray-400 text-sm mb-4">Brief description of the project, highlighting key techniques or outcomes. What problem did it solve?</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-gray-700 text-teal-300 text-xs font-semibold px-2.5 py-0.5 rounded">Python</span>
+                            <span class="bg-gray-700 text-teal-300 text-xs font-semibold px-2.5 py-0.5 rounded">Classification</span>
+                            <span class="bg-gray-700 text-teal-300 text-xs font-semibold px-2.5 py-0.5 rounded">NLP</span>
+                        </div>
+                        <a href="#" class="text-accent-color hover:text-accent-light font-medium inline-flex items-center">View Details &rarr;</a>
+                    </div>
+                </div>
+                <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105">
+                    <img src="https://placehold.co/600x400/1f2937/9ca3af?text=Project+2+Image" alt="Project 2 Placeholder" class="w-full h-48 object-cover" onerror="this.src='https://placehold.co/600x400/1f2937/9ca3af?text=Image+Error'">
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold mb-2">Customer Churn Prediction</h4>
+                        <p class="text-gray-400 text-sm mb-4">Developed a model to predict customer churn using historical data, improving retention strategies.</p>
+                         <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-gray-700 text-teal-300 text-xs font-semibold px-2.5 py-0.5 rounded">Pandas</span>
+                            <span class="bg-gray-700 text-teal-300 text-xs font-semibold px-2.5 py-0.5 rounded">Scikit-learn</span>
+                            <span class="bg-gray-700 text-teal-300 text-xs font-semibold px-2.5 py-0.5 rounded">Log. Regression</span>
+                        </div>
+                        <a href="#" class="text-accent-color hover:text-accent-light font-medium inline-flex items-center">View Details &rarr;</a>
+                    </div>
+                </div>
+                 <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105">
+                    <img src="https://placehold.co/600x400/1f2937/9ca3af?text=Project+3+Image" alt="Project 3 Placeholder" class="w-full h-48 object-cover" onerror="this.src='https://placehold.co/600x400/1f2937/9ca3af?text=Image+Error'">
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold mb-2">Sales Forecasting Dashboard</h4>
+                        <p class="text-gray-400 text-sm mb-4">Created an interactive dashboard visualizing sales trends and providing future forecasts using time series analysis.</p>
+                         <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-gray-700 text-teal-300 text-xs font-semibold px-2.5 py-0.5 rounded">Tableau/PowerBI</span>
+                            <span class="bg-gray-700 text-teal-300 text-xs font-semibold px-2.5 py-0.5 rounded">Time Series</span>
+                             <span class="bg-gray-700 text-teal-300 text-xs font-semibold px-2.5 py-0.5 rounded">SQL</span>
+                        </div>
+                        <a href="#" class="text-accent-color hover:text-accent-light font-medium inline-flex items-center">View Details &rarr;</a>
+                    </div>
+                </div>
+                <!-- {/* Add more project cards as needed */} -->
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 sm:py-28 bg-gray-800 px-4 sm:px-6 lg:px-8 fade-in-section">
+        <div class="container mx-auto max-w-3xl text-center">
+            <h3 class="text-3xl sm:text-4xl font-bold mb-6">Contact Me!</h3>
+             <div class="w-20 h-1 bg-accent-color mx-auto mb-10 rounded"></div>
+            <p class="text-lg text-gray-300 mb-8">
+                I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions. Any connections are always appreciated - feel free to reach out!
+            </p>
+            <!-- {/* Basic Contact Info - Replace with a form or more details later */} -->
+            <div class="space-y-4">
+                 <p class="text-lg">
+                    <a href="mailto:isaac.hua@mail.utoronto.ca" class="text-accent-color hover:text-accent-light transition duration-300">isaac.hua@mail.utoronto.ca</a>
+                 </p>
+                 <p class="text-lg">
+                    <a href="https://www.linkedin.com/in/isaachua/" target="_blank" rel="noopener noreferrer" class="text-accent-color hover:text-accent-light transition duration-300">LinkedIn Profile</a>
+                 </p>
+                 <p class="text-lg">
+                     <a href="https://github.com/isaachuahy" target="_blank" rel="noopener noreferrer" class="text-accent-color hover:text-accent-light transition duration-300">GitHub Profile</a>
+                 </p>
+            </div>
+             <!-- {/* Optional: Add a simple contact form here later */} -->
+        </div>
+    </section>
+
+    <footer class="py-8 px-4 sm:px-6 lg:px-8 text-center text-gray-400">
+        <div class="container mx-auto">
+            <p>&copy; <span id="current-year"></span> Isaac Hua. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple fade-in animation on scroll
+        const sections = document.querySelectorAll('.fade-in-section');
+
+        const observerOptions = {
+            root: null, // relative to document viewport
+            rootMargin: '0px',
+            threshold: 0.1 // trigger when 10% of the section is visible
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    // Optional: Stop observing once it's visible
+                    // observer.unobserve(entry.target);
+                }
+                // Optional: Remove class if scrolling up and out of view
+                // else {
+                //     entry.target.classList.remove('is-visible');
+                // }
             });
-          }
+        }, observerOptions);
+
+        sections.forEach(section => {
+            observer.observe(section);
         });
-      });
+
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+
+                // *** FIX: Check if the href is more than just '#' ***
+                if (targetId && targetId !== '#') {
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        // Only prevent default and scroll if it's a valid internal link
+                        e.preventDefault();
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+                // If href is just '#', allow the default behavior (which does nothing here)
+                // or handle it differently if needed (e.g., open a modal)
+            });
+        });
     </script>
-  </body>
+
+</body>
 </html>
