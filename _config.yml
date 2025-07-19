@@ -7,3 +7,4 @@ collections:
   posts:
     output: true
     permalink: /blog/:year/:month/:day/:title.html
+theme: jekyll-theme-minima
