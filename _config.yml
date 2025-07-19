@@ -1,13 +1,8 @@
-# _config.yml
 title: "Isaac Hua – Data Scientist"
-baseurl: ""              # blank if USER.github.io
+baseurl: ""
 url: "https://isaachuahy.github.io"
-
-# No gems needed—GitHub Pages will auto‑enable jekyll-feed
 plugins:
   - jekyll-feed
-
-# Ensure Markdown posts get output under /blog/
 collections:
   posts:
     output: true
