@@ -1,0 +1,40 @@
+---
+layout: default
+title: "Blog"
+permalink: /blog/
+---
+
+<section>
+  <h2 class="text-4xl font-bold mb-6">Blog</h2>
+  <input id="search" placeholder="Search posts…" class="w-full p-2 mb-8 bg-gray-800 rounded" />
+
+  <div id="posts" class="space-y-8">
+    {% for post in site.posts %}
+    <article class="p-6 bg-gray-800 rounded shadow hover:scale-105 transition">
+      <h3 class="text-2xl font-semibold mb-1">
+        <a href="{{ post.url | prepend: site.baseurl }}" class="text-teal-400 hover:text-teal-300">
+          {{ post.title }}
+        </a>
+      </h3>
+      <p class="text-gray-400 text-sm">{{ post.date | date: "%B %-d, %Y" }}</p>
+      <p class="mt-2 text-gray-300">{{ post.excerpt | strip_html | truncate: 150 }}</p>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
+<script>
+  SimpleJekyllSearch({
+    searchInput: document.getElementById('search'),
+    resultsContainer: document.getElementById('posts'),
+    json: "{{ '/search.json' | prepend: site.baseurl }}",
+    searchResultTemplate: `
+      <article class="p-6 bg-gray-800 rounded shadow">
+        <h3><a href="{url}" class="text-teal-400">{title}</a></h3>
+      </article>`,
+    noResultsText: "No posts found",
+    limit: 10,
+    fuzzy: false,
+  });
+</script>

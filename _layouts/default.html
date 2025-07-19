@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{{ page.title | default: site.title }}</title>
+  <link href="{{ '/assets/tailwind.css' | prepend: site.baseurl }}" rel="stylesheet">
+</head>
+<body class="antialiased bg-gray-900 text-gray-100 font-Inter">
+
+  <!-- HEADER -->
+  <header class="py-6 px-8 bg-gray-900 sticky top-0 z-50 backdrop-blur-md">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-2xl font-bold">
+        <a href="{{ '/' | prepend: site.baseurl }}">{{ site.title }}</a>
+      </h1>
+      <nav>
+        <ul class="flex space-x-6">
+          <li><a href="{{ '/#about'  | prepend: site.baseurl }}" class="hover:text-teal-300">About</a></li>
+          <li><a href="{{ '/#skills' | prepend: site.baseurl }}" class="hover:text-teal-300">Skills</a></li>
+          <li><a href="{{ '/#projects'| prepend: site.baseurl }}" class="hover:text-teal-300">Projects</a></li>
+          <li><a href="{{ '/blog/'  | prepend: site.baseurl }}" class="hover:text-teal-300 font-semibold">Blog</a></li>
+          <li><a href="{{ '/#contact'| prepend: site.baseurl }}" class="hover:text-teal-300">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- PAGE CONTENT -->
+  <main class="py-12 container mx-auto px-4">
+    {{ content }}
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="py-8 text-center text-gray-400">
+    &copy; {{ "now" | date: "%Y" }} Isaac Hua. All rights reserved.
+  </footer>
+
+</body>
+</html>
