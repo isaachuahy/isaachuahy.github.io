@@ -44,10 +44,10 @@
       <h1 class="text-2xl font-bold"><a href="{{ '/' | prepend: site.baseurl }}">{{ site.title }}</a></h1>
       <nav>
         <ul class="flex space-x-6">
+          <li><a href="{{ '/blog/' | prepend: site.baseurl }}" class="hover:text-accent-light transition duration-300{% if page.url contains '/blog' %} font-semibold{% endif %}">Blog</a></li>
           <li><a href="{{ '/#about'  | prepend: site.baseurl }}" class="hover:text-accent-light transition duration-300">About</a></li>
           <li><a href="{{ '/#skills' | prepend: site.baseurl }}" class="hover:text-accent-light transition duration-300">Skills</a></li>
           <li><a href="{{ '/#projects'| prepend: site.baseurl }}" class="hover:text-accent-light transition duration-300">Projects</a></li>
-          <li><a href="{{ '/blog/' | prepend: site.baseurl }}" class="hover:text-accent-light transition duration-300{% if page.url contains '/blog' %} font-semibold{% endif %}">Blog</a></li>
           <li><a href="{{ '/#contact'| prepend: site.baseurl }}" class="hover:text-accent-light transition duration-300">Contact</a></li>
         </ul>
       </nav>
@@ -61,7 +61,7 @@
 
   <!-- FOOTER -->
   <footer class="py-8 px-4 sm:px-6 lg:px-8 text-center text-gray-400">
-    <p>&copy; {{ "now" | date: "%Y" }} Isaac Hua. All rights reserved.</p>
+    <p>&copy; {{ "now" | date: "%Y" }} Isaac Hua. All Rights Reserved.</p>
   </footer>
 
   <!-- GLOBAL SCRIPTS: fade-in / year / smooth-scroll -->
