@@ -44,11 +44,11 @@
 
 <body class="antialiased">
   <!-- HEADER / NAVIGATION -->
-  <header class="py-4 sm:py-6 px-3 sm:px-6 lg:px-8 sticky top-0 z-50 bg-gray-900 bg-opacity-90 backdrop-blur-md">
+  <header class="py-2 sm:py-6 px-3 sm:px-6 lg:px-8 sticky top-0 z-50 bg-gray-900 bg-opacity-90 backdrop-blur-md">
     <div class="container mx-auto flex justify-between items-center">
-      <h1 class="text-2xl font-bold"><a href="{{ '/' | prepend: site.baseurl }}">{{ site.title }}</a></h1>
+      <h1 class="text-lg sm:text-2xl font-bold"><a href="{{ '/' | prepend: site.baseurl }}">{{ site.title }}</a></h1>
       <nav>
-        <ul class="flex space-x-6">
+        <ul class="flex space-x-3 sm:space-x-6 text-sm sm:text-base">
           <li><a href="{{ '/blog/' | prepend: site.baseurl }}" class="hover:text-accent-light transition duration-300{% if page.url contains '/blog' %} font-semibold{% endif %}">Blog</a></li>
           <li><a href="{{ '/#about'  | prepend: site.baseurl }}" class="hover:text-accent-light transition duration-300">About</a></li>
           <li><a href="{{ '/#skills' | prepend: site.baseurl }}" class="hover:text-accent-light transition duration-300">Skills</a></li>
