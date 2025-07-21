@@ -1,0 +1,38 @@
+---
+layout: default
+title: "Writing Mini-Essays for Deeper Learning"
+date: 2024-03-13 04:00:00 -0400
+categories:
+    - Learning Strategies
+    - Productivity
+excerpt: >
+    The path to mastery involves teaching.
+---
+
+# Writing Mini-Essays for Deeper Learning
+
+The path to mastery involves teaching. This naturally applies to all the levels within Bloom's taxonomy, a learning theory that many schools revolve around.
+
+Firstly, to be able to teach someone, you must at least be able to recall what you know. You are forced to expose your knowledge to the world, inevitably revealing the gaps between key ideas. At each and every step, this retrospective evaluation of your understanding establishes a better foundation - filling in these holes allows for more depth and complexity in your learning journey. With the ability to remember, you can explain the concept. Through explaining, you receive a barrage of questions to answer, being forced to analyse the relationship between concepts and evaluate their importance. What are the limitations? What does not make sense? After grasping these ideas, perhaps you can utilise them, expanding the general topic and creating something new based on your understanding, building something even better.
+
+One way to do all of this is through writing mini-essays.
+
+This encompasses the entirety of Bloom's taxonomy. The very act of drafting mini-essays is the creation of your own thoughts and opinions - it forces you to start from the very beginning, taking you all the way to the top of the hierarchy. Furthermore, you don't need another person to do it, the world is your audience. Mini-essays are short enough to be considered novel by our rapidly decreasing attention span in the modern world, while long enough to expand on a concept further. You can adopt any writing style that you like and write about the concepts that are truly significant to you personally. Philosophy, mathematics, psychology, introspections. Try it out - this mini-essay certainly consolidated my understanding of a learning journey!
+
+## Personal Takeaways:
+
+Throughout my undergraduate education since embarking on this journey, I always compared my learning effectiveness and complexity with middle school and high school. In contrast to the thoroughness of my knowledge and understanding prior to my postsecondary education, a tremendous amount of effort was now exerted into my study process every single day, yet it yielded far from fruitful results. I used to conquer quizzes, tests and exams, completing them within a third of the time allocated for them. When I open exam booklets now, dread flows through my body after each completed question. I never understood why until my third undergraduate year.
+
+One reason is teaching.
+
+Being in a newer place, I was naturally more isolated compared to high school. The culture was new and the environment was foreign. I did not have many interactions where I could work together with like-minded people. This meant less teaching other people and less interactions. Less collaboration. I noticed a correlation between the opportunities to teach someone and the depth of understanding I had behind the material.
+
+Upon coming to this realisation, I sought after any chance to replicate the same idea. Every time a student would ask a question in a group chat, I would take a stab at an answer. In class or office hours, I would try to pitch in and help. Before someone else would reply to a question, I would structure an answer in my own head. Through all the embarrassing moments of being incorrect as well as having to elaborate on my solutions, the gaps in my knowledge were slowly filled and I gradually built additional information on top of this solid foundation.
+
+With this resource, I have another weapon in my arsenal, especially when I don't need other people to do so - I can ask my own questions!
+
+## References & Resources:
+
+- Mini Essays: The Ultimate Learning Tool by Odysseas https://www.youtube.com/watch?v=N4YjXJVzoZY
+- Bloom's Taxonomy https://uwaterloo.ca/centre-for-teaching-excellence/catalogs/tip-sheets/blooms-taxonomy
+- Atomic Habits https://jamesclear.com/atomic-habits
