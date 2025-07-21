@@ -25,29 +25,43 @@ permalink: /blog/
 
 <script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
 <script>
-  SimpleJekyllSearch({
-    searchInput:      document.getElementById('search'),
-    resultsContainer: document.getElementById('posts'),
-    json:             "{{ '/search.json' | prepend: site.baseurl }}",
-    searchResultTemplate: `
-      <article class="p-6 bg-gray-800 rounded shadow hover:scale-105 transition">
-        <h3 class="text-2xl font-semibold mb-1">
-          <a href="{url}" class="text-teal-400 hover:text-teal-300">{title}</a>
-        </h3>
-        <p class="text-gray-400 text-sm">{date}</p>
-        <p class="mt-2 text-gray-300">{excerpt}</p>
-      </article>`,
-    noResultsText:    "No posts found",
-    limit:            10,
-    fuzzy:            false,
-    searchOnLoad:     true,
-    minChars:         1,
-  });
+  document.addEventListener('DOMContentLoaded', () => {
+    const input     = document.getElementById('search');
+    const container = document.getElementById('posts');
 
-  // 2) If the user clears the box, re‑run the empty search
-  document.getElementById('search').addEventListener('input', e => {
-    if (e.target.value.trim() === '') {
-      sjs.search('');  // reset to show all posts
-    }
+    // 1) Capture the static HTML you rendered with Liquid
+    const defaultHTML = container.innerHTML;
+
+    // 2) Initialize SJS without searchOnLoad
+    const sjs = SimpleJekyllSearch({
+      searchInput:       input,
+      resultsContainer:  container,
+      json:              "{{ '/search.json' | prepend: site.baseurl }}",
+      searchResultTemplate: `
+        <article class="p-6 bg-gray-800 rounded shadow hover:scale-105 transition">
+          <h3 class="text-2xl font-semibold mb-1">
+            <a href="{url}" class="text-teal-400 hover:text-teal-300">{title}</a>
+          </h3>
+          <p class="text-gray-400 text-sm">{date}</p>
+          <p class="mt-2 text-gray-300">{excerpt}</p>
+        </article>`,
+      noResultsText:     "No posts found",
+      limit:             10,
+      fuzzy:             false,
+      searchOnLoad:      false,  // we’ll control when it runs
+      minChars:          1       // default: only search on ≥1 char
+    });
+
+    // 3) Hook input: if empty, restore default; otherwise run search
+    input.addEventListener('input', e => {
+      const q = e.target.value.trim();
+      if (q === "") {
+        // restore full, static list
+        container.innerHTML = defaultHTML;
+      } else {
+        // run the search
+        sjs.search(q);
+      }
+    });
   });
 </script>
