@@ -26,15 +26,20 @@ permalink: /blog/
 <script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
 <script>
   SimpleJekyllSearch({
-    searchInput: document.getElementById('search'),
+    searchInput:      document.getElementById('search'),
     resultsContainer: document.getElementById('posts'),
-    json: "{{ '/search.json' | prepend: site.baseurl }}",
+    json:             "{{ '/search.json' | prepend: site.baseurl }}",
     searchResultTemplate: `
-      <article class="p-6 bg-gray-800 rounded shadow">
-        <h3><a href="{url}" class="text-teal-400">{title}</a></h3>
+      <article class="p-6 bg-gray-800 rounded shadow hover:scale-105 transition">
+        <h3 class="text-2xl font-semibold mb-1">
+          <a href="{url}" class="text-teal-400 hover:text-teal-300">{title}</a>
+        </h3>
+        <p class="text-gray-400 text-sm">{date}</p>
+        <p class="mt-2 text-gray-300">{excerpt}</p>
       </article>`,
-    noResultsText: "No posts found",
-    limit: 10,
-    fuzzy: false,
+    noResultsText:    "No posts found",
+    limit:            10,
+    fuzzy:            false,
+    searchOnLoad:     true
   });
 </script>
