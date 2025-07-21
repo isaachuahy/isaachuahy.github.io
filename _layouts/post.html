@@ -1,0 +1,31 @@
+---
+layout: default
+---
+
+<article class="prose lg:prose-xl mx-auto py-12 px-4 sm:px-6 lg:px-8 text-gray-200">
+  <!-- Post Header -->
+  <header class="mb-8 fade-in-section">
+    <h1 class="text-4xl font-bold leading-tight mb-2">{{ page.title }}</h1>
+    <p class="text-gray-400 text-sm">
+      {{ page.date | date: "%B %-d, %Y" }}
+      {% if page.categories %}
+        •
+        {% for cat in page.categories %}
+          <a href="{{ '/blog/categories/' | append: cat | slugify | append: '/' | prepend: site.baseurl }}" class="text-teal-400 hover:underline">{{ cat }}</a>{% unless forloop.last %}, {% endunless %}
+        {% endfor %}
+      {% endif %}
+    </p>
+  </header>
+
+  <!-- Post Content -->
+  <div class="fade-in-section">
+    {{ content }}
+  </div>
+
+  <!-- Back to Blog Link -->
+  <footer class="mt-12 text-center">
+    <a href="{{ '/blog/' | prepend: site.baseurl }}" class="inline-block bg-accent-color text-white font-semibold py-2 px-4 rounded hover:bg-accent-dark transition duration-300">
+      ← Back to Blog
+    </a>
+  </footer>
+</article>

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: "Writing Mini-Essays for Deeper Learning"
 date: 2024-03-13 04:00:00 -0400
 categories:

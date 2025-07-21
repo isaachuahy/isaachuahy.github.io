@@ -8,3 +8,4 @@ collections:
     output: true
     permalink: /blog/:year/:month/:day/:title.html
 theme: minima
+markdown: kramdown
