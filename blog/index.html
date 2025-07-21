@@ -42,4 +42,11 @@ permalink: /blog/
     fuzzy:            false,
     searchOnLoad:     true
   });
+
+  // 2) If the user clears the box, re‑run the empty search
+  document.getElementById('search').addEventListener('input', e => {
+    if (e.target.value.trim() === '') {
+      sjs.search('');  // reset to show all posts
+    }
+  });
 </script>
