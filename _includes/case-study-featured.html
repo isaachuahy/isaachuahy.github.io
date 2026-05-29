@@ -1,0 +1,66 @@
+<article class="border-y border-neutral-800 py-10">
+    <div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+        <div>
+            <img src="{{ case_study.image | relative_url }}" alt="{{ case_study.image_alt }}" class="mb-6 aspect-[16/10] w-full object-cover">
+            <div class="flex flex-wrap gap-2">
+                {% for item in case_study.stack %}
+                <span class="border border-neutral-700 px-2.5 py-1 text-xs font-semibold text-neutral-300">{{ item }}</span>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div>
+            <div class="mb-8 flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                <div>
+                    <p class="text-sm font-semibold uppercase tracking-[0.2em] text-amber-200">{{ case_study.eyebrow }}</p>
+                    <h4 class="mt-2 text-3xl font-bold text-neutral-50">{{ case_study.title }}</h4>
+                </div>
+                <p class="border border-neutral-700 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-neutral-300">
+                    {{ case_study.status }}
+                </p>
+            </div>
+
+            <p class="mb-8 text-xl leading-8 text-neutral-200">
+                {{ case_study.summary }}
+            </p>
+
+            <div class="grid gap-6">
+                <div class="border-t border-neutral-800 pt-5">
+                    <h5 class="text-sm font-semibold uppercase tracking-[0.18em] text-neutral-500">Problem</h5>
+                    <p class="mt-2 leading-7 text-neutral-300">
+                        {{ case_study.problem }}
+                    </p>
+                </div>
+
+                <div class="border-t border-neutral-800 pt-5">
+                    <h5 class="text-sm font-semibold uppercase tracking-[0.18em] text-neutral-500">What exists</h5>
+                    <ul class="mt-2 grid gap-2 leading-7 text-neutral-300 sm:grid-cols-2">
+                        {% for item in case_study.system_built %}
+                        <li>{{ item }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <div class="border-t border-neutral-800 pt-5">
+                    <h5 class="text-sm font-semibold uppercase tracking-[0.18em] text-neutral-500">Design choices</h5>
+                    <ul class="mt-2 grid gap-3 leading-7 text-neutral-300">
+                        {% for decision in case_study.technical_decisions %}
+                        <li>{{ decision }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <div class="border-t border-neutral-800 pt-5">
+                    <h5 class="text-sm font-semibold uppercase tracking-[0.18em] text-neutral-500">Evidence</h5>
+                    <div class="mt-2 flex flex-wrap gap-4">
+                        {% for link in case_study.evidence %}
+                        <a href="{{ link.url }}" class="inline-flex text-sm font-semibold text-amber-100 transition hover:text-amber-200">
+                            {{ link.label }} &rarr;
+                        </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>
