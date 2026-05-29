@@ -1,0 +1,118 @@
+- slug: david
+  title: David
+  eyebrow: Featured system
+  status: In active use
+  group: current
+  image: images/davidpic.png
+  image_alt: David executive AI assistant interface
+  summary: An AI executive assistant that connects long-running goals with weekly planning, calendar context, and approval-gated scheduling.
+  problem: Planning breaks when goals live in one place, the calendar lives somewhere else, and daily decisions happen under pressure. David exists to keep those layers in conversation.
+  system_built:
+    - Telegram conversational interface
+    - Google Calendar context injection
+    - Approval-gated calendar writes
+    - Session-aware memory
+    - Recurring check-ins
+    - Decision logs grounded in weekly state
+  technical_decisions:
+    - Calendar writes require explicit approval so the assistant can suggest actions without silently changing a user's schedule.
+    - Memory is scoped around useful continuity, keeping the system grounded in goals, weekly state, and decision history.
+    - Live calendar context keeps recommendations tied to real time constraints instead of generic planning advice.
+  stack:
+    - Python
+    - FastAPI
+    - Gemini
+    - Google Calendar API
+    - AWS Lightsail
+    - Backblaze B2
+  evidence:
+    - label: Repository
+      url: https://github.com/isaachuahy/david
+
+- slug: ml-monitor
+  title: ML Model Monitoring System
+  eyebrow: Completed project
+  status: Completed
+  group: past
+  image: images/MLMonitorDashboard.png
+  image_alt: ML model monitoring dashboard
+  summary: A customizable monitoring system for tracking model performance, detecting data drift, and serving low-latency FastAPI inference.
+  problem: Production ML models can degrade after deployment when input data shifts, performance changes, or teams lack a clear view into model health.
+  system_built:
+    - FastAPI inference service
+    - Performance metric tracking
+    - Data drift detection
+    - Hot-reloading model support
+    - Streamlit monitoring dashboard
+    - Discord webhook alerting
+  technical_decisions:
+    - Kept inference and monitoring simple enough to deploy without a heavy MLOps platform.
+    - Used dashboard visibility and alerting so model issues could be noticed before they became silent failures.
+    - Supported hot-reloading to reduce friction when swapping or updating models.
+  stack:
+    - Python
+    - FastAPI
+    - PostgreSQL
+    - Streamlit
+    - MLOps
+    - Discord webhooks
+  evidence:
+    - label: Repository
+      url: https://github.com/isaachuahy/ml-monitor
+
+- slug: cocoa-futures
+  title: Cocoa Futures Price Modelling
+  eyebrow: Completed project
+  status: Completed
+  group: past
+  image: images/CocoaFuturesModel.png
+  image_alt: Cocoa futures price forecasting model output
+  summary: A comparative time-series forecasting study that identified VARX as the strongest model for cocoa futures price prediction.
+  problem: Commodity price forecasting requires comparing model families under realistic back-testing instead of relying on a single preferred method.
+  system_built:
+    - Comparative forecasting workflow
+    - ARIMA-GARCH, ETS, and VARX model evaluation
+    - Scripted model fitting
+    - Back-testing pipeline
+    - Forecast accuracy comparison
+  technical_decisions:
+    - Compared multiple time-series approaches before selecting the final model.
+    - Used scripted fitting and back-testing so evaluation could be repeated and extended.
+    - Selected VARX based on comparative predictive performance rather than model familiarity.
+  stack:
+    - R
+    - Time series forecasting
+    - forecast
+    - rugarch
+    - vars
+  evidence:
+    - label: Repository
+      url: https://github.com/isaachuahy/STA457_Project
+
+- slug: visual-mae-synthesis
+  title: Synthesis on Transformers and Autoencoders
+  eyebrow: Completed project
+  status: Completed
+  group: past
+  image: images/VisualMAE_DISTILLED.png
+  image_alt: Visual masked autoencoder synthesis diagram
+  summary: A synthesis exploring masked autoencoders, teacher-student training, transformers, Gaussian processes, and skip-gram models.
+  problem: Modern representation learning methods are powerful but easy to treat as isolated techniques without understanding how their assumptions and training objectives differ.
+  system_built:
+    - Technical synthesis of transformer and autoencoder concepts
+    - Exploration of masked autoencoders for visual classification
+    - Review of teacher-student training patterns
+    - Connections across Gaussian processes and skip-gram models
+  technical_decisions:
+    - Focused on explaining relationships between model families instead of presenting them as disconnected topics.
+    - Used visual classification and masked reconstruction as the anchor for understanding representation learning.
+    - Connected architecture choices to training objectives and downstream use.
+  stack:
+    - PyTorch
+    - Transformers
+    - Autoencoders
+    - Gaussian processes
+    - Skip-gram models
+  evidence:
+    - label: Writeup
+      url: https://drive.google.com/file/d/1npLudNQBb09_m_AR_Rq6GgmhCyfMGtTr/view
