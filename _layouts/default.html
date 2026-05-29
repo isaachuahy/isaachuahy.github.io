@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ page.title | default: site.title }}</title>
 
-  <!-- Tailwind via CDN -->
   <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
   <script>
     tailwind.config = {
@@ -13,72 +12,66 @@
     }
   </script>
 
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Custom CSS -->
   <style>
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #111827; /* bg-gray-900 */
-      color: #f3f4f6; /* text-gray-100 */
+      background-color: #0f0f0f;
+      color: #f3f4f6;
     }
+
     .fade-in-section {
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(16px);
       transition: opacity 0.6s ease-out, transform 0.6s ease-out;
     }
+
     .fade-in-section.is-visible {
       opacity: 1;
       transform: translateY(0);
     }
-    .accent-color { color: #14b8a6; }
-    .bg-accent-color { background-color: #14b8a6; }
-    .border-accent-color { border-color: #14b8a6; }
-    .hover\:bg-accent-dark:hover { background-color: #0f766e; }
-    .hover\:text-accent-light:hover { color: #5eead4; }
   </style>
 </head>
 
 <body class="antialiased">
-  <!-- HEADER / NAVIGATION -->
-  <header class="py-2 sm:py-6 px-3 sm:px-6 lg:px-8 sticky top-0 z-50 bg-gray-900 bg-opacity-90 backdrop-blur-md">
+  <header class="sticky top-0 z-50 border-b border-neutral-800/80 bg-neutral-950/85 px-4 py-4 backdrop-blur-md sm:px-6 lg:px-8">
     <div class="container mx-auto flex justify-between items-center">
-      <h1 class="text-lg sm:text-2xl font-bold"><a href="{{ '/' | prepend: site.baseurl }}">{{ site.title }}</a></h1>
+      <h1 class="text-sm font-semibold uppercase tracking-[0.22em] text-neutral-100">
+        <a href="{{ '/' | prepend: site.baseurl }}" class="transition hover:text-amber-100">{{ site.title }}</a>
+      </h1>
       <nav>
-        <ul class="flex space-x-3 sm:space-x-6 text-sm sm:text-base">
-          <li><a href="{{ '/blog/' | prepend: site.baseurl }}" class="hover:text-accent-light transition duration-300{% if page.url contains '/blog' %} font-semibold{% endif %}">Blog</a></li>
-          <li><a href="{{ '/#about'  | prepend: site.baseurl }}" class="hover:text-accent-light transition duration-300">About</a></li>
-          <li><a href="{{ '/#skills' | prepend: site.baseurl }}" class="hover:text-accent-light transition duration-300">Skills</a></li>
-          <li><a href="{{ '/#projects'| prepend: site.baseurl }}" class="hover:text-accent-light transition duration-300">Projects</a></li>
-          <li><a href="{{ '/#contact'| prepend: site.baseurl }}" class="hover:text-accent-light transition duration-300">Contact</a></li>
+        <ul class="flex flex-wrap justify-end gap-x-4 gap-y-2 text-xs font-semibold uppercase tracking-[0.16em] text-neutral-400 sm:gap-x-6">
+          <li><a href="{{ '/#projects' | prepend: site.baseurl }}" class="transition hover:text-amber-100">Work</a></li>
+          <li><a href="{{ '/#skills' | prepend: site.baseurl }}" class="transition hover:text-amber-100">How I build</a></li>
+          <li><a href="{{ '/#about' | prepend: site.baseurl }}" class="transition hover:text-amber-100">About</a></li>
+          <li><a href="{{ '/blog/' | prepend: site.baseurl }}" class="transition hover:text-amber-100{% if page.url contains '/blog' %} text-amber-100{% endif %}">Blog</a></li>
+          <li><a href="{{ '/#contact' | prepend: site.baseurl }}" class="transition hover:text-amber-100">Contact</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <!-- PAGE CONTENT -->
-  <main class="py-12 px-4 sm:px-6 lg:px-8 container mx-auto">
+  <main class="container mx-auto px-4 py-12 sm:px-6 lg:px-8">
     {{ content }}
   </main>
 
-  <!-- FOOTER -->
-  <footer class="py-8 px-4 sm:px-6 lg:px-8 text-center text-gray-400">
-    <p>&copy; {{ "now" | date: "%Y" }} Isaac Hua. All Rights Reserved.</p>
+  <footer class="border-t border-neutral-800 px-4 py-8 text-sm text-neutral-500 sm:px-6 lg:px-8">
+    <div class="container mx-auto flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+      <p>&copy; {{ "now" | date: "%Y" }} Isaac Hua.</p>
+      <a href="{{ '/' | prepend: site.baseurl }}" class="font-semibold uppercase tracking-[0.16em] transition hover:text-amber-100">Home</a>
+    </div>
   </footer>
 
-  <!-- GLOBAL SCRIPTS: fade-in / year / smooth-scroll -->
   <script>
-    // fade-in on scroll
     const sections = document.querySelectorAll('.fade-in-section');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('is-visible'); });
     }, { threshold: 0.1 });
     sections.forEach(s => observer.observe(s));
 
-    // smooth anchor scroll
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', e => {
         const t = document.querySelector(a.getAttribute('href'));

@@ -2,30 +2,26 @@
 layout: default
 ---
 
-<article class="prose prose-invert lg:prose-xl mx-auto py-12 px-4 sm:px-6 lg:px-8 text-gray-200">
-  <!-- Post Header -->
-  <header class="mb-8">
-    <h1 class="text-4xl font-bold leading-tight mb-2">{{ page.title }}</h1>
-    <p class="text-gray-400 text-sm">
+<article class="mx-auto max-w-4xl px-4 py-12 text-neutral-200 sm:px-6 lg:px-8">
+  <header class="border-b border-neutral-800 pb-8">
+    <p class="text-xs font-semibold uppercase tracking-[0.18em] text-neutral-500">
       {{ page.date | date: "%B %-d, %Y" }}
       {% if page.categories %}
-        •
+        /
         {% for cat in page.categories %}
-          <a href="{{ '/blog/categories/' | append: cat | slugify | append: '/' | prepend: site.baseurl }}" class="text-teal-400 hover:underline">{{ cat }}</a>{% unless forloop.last %}, {% endunless %}
+          <a href="{{ '/blog/categories/' | append: cat | slugify | append: '/' | prepend: site.baseurl }}" class="transition hover:text-amber-100">{{ cat }}</a>{% unless forloop.last %}, {% endunless %}
         {% endfor %}
       {% endif %}
     </p>
+    <h1 class="mt-4 text-4xl font-bold leading-tight text-neutral-50 sm:text-5xl">{{ page.title }}</h1>
   </header>
 
-  <!-- Post Content -->
-  <div class="prose prose-invert lg:prose-xl">
+  <div class="prose prose-invert prose-neutral mt-10 max-w-none lg:prose-lg prose-a:text-amber-100 prose-a:no-underline hover:prose-a:text-amber-200 prose-headings:text-neutral-50 prose-p:leading-8 prose-li:leading-8">
     {{ content }}
   </div>
-  
 
-  <!-- Back to Blog Link -->
-  <footer class="mt-12 text-center">
-    <a href="{{ '/blog/' | prepend: site.baseurl }}" class="inline-block bg-accent-color text-white font-semibold py-2 px-4 rounded no-underline hover:no-underline hover:bg-accent-dark transition duration-300">
+  <footer class="mt-12 border-t border-neutral-800 pt-8">
+    <a href="{{ '/blog/' | prepend: site.baseurl }}" class="text-sm font-semibold uppercase tracking-[0.16em] text-amber-100 transition hover:text-amber-200">
       &larr; Back to Blog
     </a>
   </footer>

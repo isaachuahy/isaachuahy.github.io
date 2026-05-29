@@ -4,20 +4,32 @@ title: "Blog"
 permalink: /blog/
 ---
 
-<section>
-  <h2 class="text-4xl font-bold mb-6">Blog</h2>
-  <input id="search" placeholder="Search posts…" class="w-full p-2 mb-8 bg-gray-800 rounded" />
+<section class="mx-auto max-w-5xl">
+  <div class="grid gap-8 border-b border-neutral-800 pb-10 lg:grid-cols-[0.75fr_1.25fr]">
+    <div>
+      <p class="text-sm font-semibold uppercase tracking-[0.22em] text-neutral-500">Blog</p>
+      <h2 class="mt-3 text-4xl font-bold text-neutral-50 sm:text-5xl">Notes on learning, systems, and practice.</h2>
+    </div>
+    <p class="text-lg leading-8 text-neutral-300">
+      Essays and working notes from the same place as the projects: trying to understand ideas deeply enough to use them.
+    </p>
+  </div>
 
-  <div id="posts" class="space-y-8">
+  <label for="search" class="mt-10 block text-xs font-semibold uppercase tracking-[0.18em] text-neutral-500">Search posts</label>
+  <input id="search" placeholder="Type to filter..." class="mt-3 w-full border border-neutral-800 bg-neutral-950 px-4 py-3 text-neutral-100 placeholder:text-neutral-600 outline-none transition focus:border-amber-200" />
+
+  <div id="posts" class="mt-10 border-y border-neutral-800">
     {% for post in site.posts %}
-    <article class="p-6 bg-gray-800 rounded shadow hover:scale-105 transition">
-      <h3 class="text-2xl font-semibold mb-1">
-        <a href="{{ post.url | prepend: site.baseurl }}" class="text-teal-400 hover:text-teal-300">
+    <article class="grid gap-4 border-b border-neutral-800 py-8 last:border-b-0 md:grid-cols-[0.35fr_1.65fr]">
+      <p class="text-sm font-semibold uppercase tracking-[0.16em] text-neutral-500">{{ post.date | date: "%B %-d, %Y" }}</p>
+      <div>
+        <h3 class="text-2xl font-bold text-neutral-50">
+          <a href="{{ post.url | prepend: site.baseurl }}" class="transition hover:text-amber-100">
           {{ post.title }}
-        </a>
-      </h3>
-      <p class="text-gray-400 text-sm">{{ post.date | date: "%B %-d, %Y" }}</p>
-      <p class="mt-2 text-gray-300">{{ post.excerpt | strip_html | truncate: 150 }}</p>
+          </a>
+        </h3>
+        <p class="mt-3 max-w-3xl leading-7 text-neutral-300">{{ post.excerpt | strip_html | truncate: 170 }}</p>
+      </div>
     </article>
     {% endfor %}
   </div>
@@ -30,12 +42,14 @@ permalink: /blog/
     resultsContainer: document.getElementById('posts'),
     json:             "{{ '/search.json' | prepend: site.baseurl }}",
     searchResultTemplate: `
-      <article class="p-6 bg-gray-800 rounded shadow hover:scale-105 transition">
-        <h3 class="text-2xl font-semibold mb-1">
-          <a href="{url}" class="text-teal-400 hover:text-teal-300">{title}</a>
-        </h3>
-        <p class="text-gray-400 text-sm">{date}</p>
-        <p class="mt-2 text-gray-300">{excerpt}</p>
+      <article class="grid gap-4 border-b border-neutral-800 py-8 last:border-b-0 md:grid-cols-[0.35fr_1.65fr]">
+        <p class="text-sm font-semibold uppercase tracking-[0.16em] text-neutral-500">{date}</p>
+        <div>
+          <h3 class="text-2xl font-bold text-neutral-50">
+            <a href="{url}" class="transition hover:text-amber-100">{title}</a>
+          </h3>
+          <p class="mt-3 max-w-3xl leading-7 text-neutral-300">{excerpt}</p>
+        </div>
       </article>`,
     noResultsText:    "No posts found",
     limit:            10,
