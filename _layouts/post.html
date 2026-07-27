@@ -2,27 +2,46 @@
 layout: default
 ---
 
-<article class="mx-auto max-w-4xl px-4 py-12 text-neutral-200 sm:px-6 lg:px-8">
-  <header class="border-b border-neutral-800 pb-8">
-    <p class="text-xs font-semibold uppercase tracking-[0.18em] text-neutral-500">
-      {{ page.date | date: "%B %-d, %Y" }}
-      {% if page.categories %}
-        /
-        {% for cat in page.categories %}
-          <a href="{{ '/blog/categories/' | append: cat | slugify | append: '/' | prepend: site.baseurl }}" class="transition hover:text-amber-100">{{ cat }}</a>{% unless forloop.last %}, {% endunless %}
+<article aria-labelledby="article-title">
+  <header class="mx-auto max-w-4xl pb-12 pt-4 sm:pb-16 sm:pt-8">
+    <a href="{{ '/blog/' | prepend: site.baseurl }}" class="text-sm font-semibold text-neutral-400 transition hover:text-amber-100 focus:outline-none focus:ring-2 focus:ring-amber-100 focus:ring-offset-4 focus:ring-offset-neutral-950">
+      Writing
+    </a>
+
+    <div class="mt-8 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-neutral-500">
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+      {% if page.categories and page.categories.size > 0 %}
+      <span aria-hidden="true">·</span>
+      <p>
+        {% comment %}
+        Categories remain plain metadata because the project does not generate category archive pages.
+        {% endcomment %}
+        {% for category in page.categories %}
+        <span>{{ category }}</span>{% unless forloop.last %}<span aria-hidden="true">, </span>{% endunless %}
         {% endfor %}
+      </p>
       {% endif %}
+    </div>
+
+    <h1 id="article-title" class="mt-5 max-w-4xl text-4xl font-bold leading-[1.05] tracking-[-0.035em] text-neutral-50 sm:text-5xl lg:text-6xl">
+      {{ page.title }}
+    </h1>
+
+    {% if page.description %}
+    <p class="mt-6 max-w-3xl text-xl leading-8 text-neutral-300">
+      {{ page.description }}
     </p>
-    <h1 class="mt-4 text-4xl font-bold leading-tight text-neutral-50 sm:text-5xl">{{ page.title }}</h1>
+    {% endif %}
   </header>
 
-  <div class="prose prose-invert prose-neutral mt-10 max-w-none lg:prose-lg prose-a:text-amber-100 prose-a:no-underline hover:prose-a:text-amber-200 prose-headings:text-neutral-50 prose-p:leading-8 prose-li:leading-8">
+  <div class="prose prose-invert prose-neutral mx-auto max-w-[70ch] prose-headings:scroll-mt-24 prose-headings:font-bold prose-headings:tracking-[-0.025em] prose-headings:text-neutral-50 prose-p:leading-8 prose-li:leading-8 prose-strong:text-neutral-100 prose-a:font-medium prose-a:text-amber-100 prose-a:decoration-neutral-600 prose-a:underline-offset-4 hover:prose-a:text-amber-200 hover:prose-a:decoration-amber-200 lg:prose-lg">
     {{ content }}
   </div>
 
-  <footer class="mt-12 border-t border-neutral-800 pt-8">
-    <a href="{{ '/blog/' | prepend: site.baseurl }}" class="text-sm font-semibold uppercase tracking-[0.16em] text-amber-100 transition hover:text-amber-200">
-      &larr; Back to Blog
+  <footer class="mx-auto mt-16 max-w-[70ch] border-t border-neutral-800 pt-8">
+    <p class="text-sm text-neutral-500">End of note</p>
+    <a href="{{ '/blog/' | prepend: site.baseurl }}" class="mt-4 inline-flex text-sm font-semibold text-amber-100 underline decoration-neutral-700 underline-offset-8 transition hover:text-amber-200 hover:decoration-amber-200 focus:outline-none focus:ring-2 focus:ring-amber-100 focus:ring-offset-4 focus:ring-offset-neutral-950">
+      &larr; All writing
     </a>
   </footer>
 </article>

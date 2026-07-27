@@ -5,7 +5,7 @@
   group: current
   image: images/davidpic.png
   image_alt: David executive AI assistant interface
-  summary: An AI executive assistant that connects long-running goals with weekly planning, calendar context, and approval-gated scheduling. Learns from all your interactions.
+  summary: An AI executive assistant that turns long-term goals into weekly plans using live calendar context and approval-gated scheduling.
   problem: Planning & scheduling breaks when goals live in one place, the calendar lives somewhere else, and daily decisions happen under pressure. Enterprise & common solutions like Motion or TrevorAI conduct planning & scheduling with algorithms and un-intuitive decision-making that don't reflect the reality of human workflows. David exists to keep all these layers in conversation and understands how you work.
   system_built:
     - Telegram conversational interface
@@ -15,9 +15,10 @@
     - Recurring check-ins
     - Decision logs grounded in weekly state
   technical_decisions:
+    # The strongest operating-boundary decision stays first because compact views use it as the project signal.
     - Calendar writes require explicit approval so the assistant can suggest actions without silently changing a user's schedule.
-    - Memory is scoped around useful continuity, keeping the system grounded in goals, weekly state, and decision history.
-    - Live calendar context keeps recommendations tied to real time constraints instead of generic planning advice.
+    - Memory is scoped to planning context so continuity stays useful and grounded.
+    - Live calendar context keeps recommendations tied to real constraints rather than generic planning advice.
   stack:
     - Python
     - FastAPI
@@ -36,7 +37,7 @@
   group: past
   image: images/MLMonitorDashboard.png
   image_alt: ML model monitoring dashboard
-  summary: A customizable monitoring system for tracking model performance, detecting data drift, and serving low-latency FastAPI inference.
+  summary: A deployable monitoring system that pairs low-latency FastAPI inference with visibility into model health and data drift.
   problem: Production ML models can degrade after deployment when input data shifts, performance changes, or teams lack a clear view into model health.
   system_built:
     - FastAPI inference service
@@ -46,7 +47,8 @@
     - Streamlit monitoring dashboard
     - Discord webhook alerting
   technical_decisions:
-    - Kept inference and monitoring simple enough to deploy without a heavy MLOps platform.
+    # Compact project rows surface the first decision, so it leads with the core implementation tradeoff.
+    - Kept inference and monitoring deployable without introducing a heavy MLOps platform.
     - Used dashboard visibility and alerting so model issues could be noticed before they became silent failures.
     - Supported hot-reloading to reduce friction when swapping or updating models.
   stack:
@@ -67,7 +69,7 @@
   group: past
   image: images/CocoaFuturesModel.png
   image_alt: Cocoa futures price forecasting model output
-  summary: A comparative time-series forecasting study that identified VARX as the strongest model for cocoa futures price prediction.
+  summary: A comparative forecasting study that used scripted back-testing to select VARX for cocoa futures prediction.
   problem: Commodity price forecasting requires comparing model families under realistic back-testing instead of relying on a single preferred method.
   system_built:
     - Comparative forecasting workflow
@@ -76,9 +78,9 @@
     - Back-testing pipeline
     - Forecast accuracy comparison
   technical_decisions:
-    - Compared multiple time-series approaches before selecting the final model.
+    # Compact project rows surface the first decision, so model selection evidence comes first.
+    - Selected VARX through comparative back-testing rather than model familiarity.
     - Used scripted fitting and back-testing so evaluation could be repeated and extended.
-    - Selected VARX based on comparative predictive performance rather than model familiarity.
   stack:
     - R
     - Time series forecasting
@@ -96,7 +98,7 @@
   group: past
   image: images/VisualMAE_DISTILLED.png
   image_alt: Visual masked autoencoder synthesis diagram
-  summary: A synthesis exploring masked autoencoders, teacher-student training, transformers, Gaussian processes, and skip-gram models.
+  summary: A technical synthesis that uses masked autoencoders as an anchor for understanding modern representation-learning methods.
   problem: Modern representation learning methods are powerful but easy to treat as isolated techniques without understanding how their assumptions and training objectives differ.
   system_built:
     - Technical synthesis of transformer and autoencoder concepts
@@ -104,7 +106,8 @@
     - Review of teacher-student training patterns
     - Connections across Gaussian processes and skip-gram models
   technical_decisions:
-    - Focused on explaining relationships between model families instead of presenting them as disconnected topics.
+    # Compact project rows surface the first decision, so the organizing principle comes first.
+    - Explained relationships between model families rather than presenting them as disconnected techniques.
     - Used visual classification and masked reconstruction as the anchor for understanding representation learning.
     - Connected architecture choices to training objectives and downstream use.
   stack:

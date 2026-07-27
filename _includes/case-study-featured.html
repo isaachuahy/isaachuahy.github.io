@@ -1,63 +1,72 @@
-<article class="border-y border-neutral-800 py-10">
-    <div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+{% assign primary_evidence = case_study.evidence | first %}
+<article class="bg-neutral-900 p-6 sm:p-8 lg:p-10">
+    <div class="grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-14">
         <div>
-            <img src="{{ case_study.image | relative_url }}" alt="{{ case_study.image_alt }}" class="mb-6 aspect-[16/10] w-full object-cover">
-            <div class="flex flex-wrap gap-2">
-                {% for item in case_study.stack %}
-                <span class="border border-neutral-700 px-2.5 py-1 text-xs font-semibold text-neutral-300">{{ item }}</span>
+            <a href="{{ primary_evidence.url }}" class="block focus:outline-none focus:ring-2 focus:ring-amber-100 focus:ring-offset-4 focus:ring-offset-neutral-900" aria-label="Open {{ case_study.title }} {{ primary_evidence.label | downcase }}">
+                <img src="{{ case_study.image | relative_url }}" alt="{{ case_study.image_alt }}" class="aspect-[16/10] w-full object-cover transition duration-300 hover:opacity-90">
+            </a>
+
+            <div class="mt-5 flex flex-wrap gap-x-4 gap-y-2 text-xs font-semibold text-neutral-400">
+                {% comment %}
+                The featured stack remains intentionally concise so the system, not its tool list, leads.
+                {% endcomment %}
+                {% for item in case_study.stack limit: 4 %}
+                <span>{{ item }}</span>
                 {% endfor %}
             </div>
         </div>
 
         <div>
-            <div class="mb-8 flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-                <div>
-                    <p class="text-sm font-semibold uppercase tracking-[0.2em] text-amber-200">{{ case_study.eyebrow }}</p>
-                    <h4 class="mt-2 text-3xl font-bold text-neutral-50">{{ case_study.title }}</h4>
-                </div>
-                <p class="border border-neutral-700 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-neutral-300">
-                    {{ case_study.status }}
-                </p>
+            <div class="flex flex-wrap items-center gap-x-3 gap-y-2">
+                <p class="text-sm font-semibold text-amber-200">{{ case_study.eyebrow }}</p>
+                <span class="text-neutral-700" aria-hidden="true">·</span>
+                <p class="text-xs font-semibold text-neutral-400">{{ case_study.status }}</p>
             </div>
 
-            <p class="mb-8 text-xl leading-8 text-neutral-200">
+            <h4 class="mt-4 text-4xl font-bold tracking-[-0.03em] text-neutral-50 sm:text-5xl">
+                {{ case_study.title }}
+            </h4>
+            <p class="mt-5 text-xl leading-8 text-neutral-200">
                 {{ case_study.summary }}
             </p>
 
-            <div class="grid gap-6">
-                <div class="border-t border-neutral-800 pt-5">
-                    <h5 class="text-sm font-semibold uppercase tracking-[0.18em] text-neutral-500">Problem</h5>
-                    <p class="mt-2 leading-7 text-neutral-300">
-                        {{ case_study.problem }}
-                    </p>
-                </div>
-
-                <div class="border-t border-neutral-800 pt-5">
-                    <h5 class="text-sm font-semibold uppercase tracking-[0.18em] text-neutral-500">What exists</h5>
-                    <ul class="mt-2 grid gap-2 leading-7 text-neutral-300 sm:grid-cols-2">
-                        {% for item in case_study.system_built %}
-                        <li>{{ item }}</li>
+            <div class="mt-9 grid gap-8 sm:grid-cols-2">
+                <div>
+                    <h5 class="text-sm font-semibold text-neutral-100">What works today</h5>
+                    <ul class="mt-4 space-y-3 text-sm leading-6 text-neutral-300">
+                        {% comment %}
+                        Three representative capabilities keep the featured story scannable; the repository holds the full implementation.
+                        {% endcomment %}
+                        {% for item in case_study.system_built limit: 3 %}
+                        <li class="flex gap-3">
+                            <span class="text-amber-200" aria-hidden="true">—</span>
+                            <span>{{ item }}</span>
+                        </li>
                         {% endfor %}
                     </ul>
                 </div>
 
-                <div class="border-t border-neutral-800 pt-5">
-                    <h5 class="text-sm font-semibold uppercase tracking-[0.18em] text-neutral-500">Design choices</h5>
-                    <ul class="mt-2 grid gap-3 leading-7 text-neutral-300">
-                        {% for decision in case_study.technical_decisions %}
-                        <li>{{ decision }}</li>
+                <div>
+                    <h5 class="text-sm font-semibold text-neutral-100">The decisions that matter</h5>
+                    <ul class="mt-4 space-y-3 text-sm leading-6 text-neutral-300">
+                        {% comment %}
+                        The first two recorded decisions communicate the operating boundary without repeating the full case study.
+                        {% endcomment %}
+                        {% for decision in case_study.technical_decisions limit: 2 %}
+                        <li class="flex gap-3">
+                            <span class="text-amber-200" aria-hidden="true">—</span>
+                            <span>{{ decision }}</span>
+                        </li>
                         {% endfor %}
                     </ul>
-                </div>
 
-                <div class="border-t border-neutral-800 pt-5">
-                    <h5 class="text-sm font-semibold uppercase tracking-[0.18em] text-neutral-500">Evidence</h5>
-                    <div class="mt-2 flex flex-wrap gap-4">
-                        {% for link in case_study.evidence %}
-                        <a href="{{ link.url }}" class="inline-flex text-sm font-semibold text-amber-100 transition hover:text-amber-200">
-                            {{ link.label }} &rarr;
+                    <div class="mt-6">
+                        {% comment %}
+                        Primary evidence sits with the decisions it substantiates instead of floating below the card.
+                        {% endcomment %}
+                        <a href="{{ primary_evidence.url }}" class="text-sm font-semibold text-amber-100 underline decoration-neutral-600 underline-offset-8 transition hover:text-amber-200 hover:decoration-amber-200 focus:outline-none focus:ring-2 focus:ring-amber-100 focus:ring-offset-4 focus:ring-offset-neutral-900">
+                            Inspect {{ primary_evidence.label | downcase }} &rarr;
                         </a>
-                        {% endfor %}
                     </div>
                 </div>
             </div>

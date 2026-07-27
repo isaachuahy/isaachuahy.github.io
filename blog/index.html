@@ -1,59 +1,57 @@
 ---
 layout: default
-title: "Blog"
+title: "Writing"
 permalink: /blog/
 ---
 
-<section class="mx-auto max-w-5xl">
-  <div class="grid gap-8 border-b border-neutral-800 pb-10 lg:grid-cols-[0.75fr_1.25fr]">
+<section aria-labelledby="writing-title">
+  <div class="grid gap-8 pb-14 lg:grid-cols-[minmax(0,1.1fr)_minmax(18rem,0.9fr)] lg:items-end">
     <div>
-      <p class="text-sm font-semibold uppercase tracking-[0.22em] text-neutral-500">Blog</p>
-      <h2 class="mt-3 text-4xl font-bold text-neutral-50 sm:text-5xl">Notes on learning, systems, and practice.</h2>
+      <p class="text-sm font-semibold text-amber-200">Writing</p>
+      <h1 id="writing-title" class="mt-4 max-w-3xl text-5xl font-bold leading-[1.02] tracking-[-0.035em] text-neutral-50 sm:text-6xl">
+        Notes from figuring things out properly.
+      </h1>
     </div>
-    <p class="text-lg leading-8 text-neutral-300">
-      Essays and working notes from the same place as the projects: trying to understand ideas deeply enough to use them.
+    <p class="max-w-xl text-lg leading-8 text-neutral-300">
+      Essays on learning, technical systems, and the practice of turning an idea over until it becomes useful.
     </p>
   </div>
 
-  <label for="search" class="mt-10 block text-xs font-semibold uppercase tracking-[0.18em] text-neutral-500">Search posts</label>
-  <input id="search" placeholder="Type to filter..." class="mt-3 w-full border border-neutral-800 bg-neutral-950 px-4 py-3 text-neutral-100 placeholder:text-neutral-600 outline-none transition focus:border-amber-200" />
-
-  <div id="posts" class="mt-10 border-y border-neutral-800">
+  {% if site.posts.size > 0 %}
+  <div class="border-t border-neutral-800">
+    {% comment %}
+    The index stays intentionally linear while the collection is small, keeping every post immediately discoverable.
+    {% endcomment %}
     {% for post in site.posts %}
-    <article class="grid gap-4 border-b border-neutral-800 py-8 last:border-b-0 md:grid-cols-[0.35fr_1.65fr]">
-      <p class="text-sm font-semibold uppercase tracking-[0.16em] text-neutral-500">{{ post.date | date: "%B %-d, %Y" }}</p>
+    <article class="grid gap-5 border-b border-neutral-800 py-9 md:grid-cols-[9rem_1fr] md:gap-10">
+      <p class="pt-1 text-sm text-neutral-500">
+        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+      </p>
       <div>
-        <h3 class="text-2xl font-bold text-neutral-50">
-          <a href="{{ post.url | prepend: site.baseurl }}" class="transition hover:text-amber-100">
-          {{ post.title }}
+        <h2 class="max-w-3xl text-2xl font-bold tracking-[-0.02em] text-neutral-50 sm:text-3xl">
+          <a href="{{ post.url | prepend: site.baseurl }}" class="transition hover:text-amber-100 focus:outline-none focus:ring-2 focus:ring-amber-100 focus:ring-offset-4 focus:ring-offset-neutral-950">
+            {{ post.title }}
           </a>
-        </h3>
-        <p class="mt-3 max-w-3xl leading-7 text-neutral-300">{{ post.excerpt | strip_html | truncate: 170 }}</p>
+        </h2>
+        <p class="mt-4 max-w-3xl text-base leading-7 text-neutral-300">
+          {{ post.excerpt | strip_html | normalize_whitespace | truncate: 190 }}
+        </p>
+        <a href="{{ post.url | prepend: site.baseurl }}" class="mt-5 inline-flex text-sm font-semibold text-amber-100 underline decoration-neutral-700 underline-offset-8 transition hover:text-amber-200 hover:decoration-amber-200 focus:outline-none focus:ring-2 focus:ring-amber-100 focus:ring-offset-4 focus:ring-offset-neutral-950" aria-label="Read {{ post.title }}">
+          Read essay &rarr;
+        </a>
       </div>
     </article>
     {% endfor %}
   </div>
+  {% else %}
+  <div class="border-t border-neutral-800 pt-10">
+    <h2 class="text-2xl font-bold text-neutral-50">The first note is still taking shape.</h2>
+    <p class="mt-3 max-w-2xl leading-7 text-neutral-300">
+      In the meantime, the portfolio documents the systems and decisions behind my current work.
+    </p>
+    <a href="{{ '/#projects' | prepend: site.baseurl }}" class="mt-6 inline-flex text-sm font-semibold text-amber-100 underline decoration-neutral-700 underline-offset-8 transition hover:text-amber-200 hover:decoration-amber-200 focus:outline-none focus:ring-2 focus:ring-amber-100 focus:ring-offset-4 focus:ring-offset-neutral-950">
+      Explore selected work &rarr;
+    </a>
+  </div>
+  {% endif %}
 </section>
-
-<script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
-<script>
-  SimpleJekyllSearch({
-    searchInput:      document.getElementById('search'),
-    resultsContainer: document.getElementById('posts'),
-    json:             "{{ '/search.json' | prepend: site.baseurl }}",
-    searchResultTemplate: `
-      <article class="grid gap-4 border-b border-neutral-800 py-8 last:border-b-0 md:grid-cols-[0.35fr_1.65fr]">
-        <p class="text-sm font-semibold uppercase tracking-[0.16em] text-neutral-500">{date}</p>
-        <div>
-          <h3 class="text-2xl font-bold text-neutral-50">
-            <a href="{url}" class="transition hover:text-amber-100">{title}</a>
-          </h3>
-          <p class="mt-3 max-w-3xl leading-7 text-neutral-300">{excerpt}</p>
-        </div>
-      </article>`,
-    noResultsText:    "No posts found",
-    limit:            10,
-    fuzzy:            false,
-    searchOnLoad:     true
-  });
-</script>

@@ -3,81 +3,104 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ page.title | default: site.title }}</title>
+  <meta name="description" content="{{ page.excerpt | default: site.description | default: 'Writing and project notes from Isaac Hua.' | strip_html | normalize_whitespace | escape }}">
+  <title>{% if page.title %}{{ page.title }} · {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <link rel="icon" type="image/jpeg" href="{{ '/images/ISAAC_HUA_PICTURE_CROPPED.jpg' | relative_url }}">
 
   <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
-  <script>
-    tailwind.config = {
-      plugins: [tailwindcssTypography],
-    }
-  </script>
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@500;600;700&display=swap" rel="stylesheet">
 
   <style>
+    :root {
+      --font-body: "IBM Plex Sans", sans-serif;
+      --font-display: "IBM Plex Serif", serif;
+      color-scheme: dark;
+    }
+
+    /* Shared type choices keep the writing surface connected to the portfolio without reducing readability. */
     body {
-      font-family: 'Inter', sans-serif;
-      background-color: #0f0f0f;
+      min-width: 320px;
+      font-family: var(--font-body);
+      background: #0f0f0f;
       color: #f3f4f6;
     }
 
-    .fade-in-section {
-      opacity: 0;
-      transform: translateY(16px);
-      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: var(--font-display);
     }
 
-    .fade-in-section.is-visible {
-      opacity: 1;
-      transform: translateY(0);
+    /* Author-level link color prevents visited links from falling back to the browser's purple default. */
+    a {
+      color: inherit;
+    }
+
+    /* Accent links keep their semantic color in both unvisited and visited browser states. */
+    a.text-amber-100,
+    a.text-amber-100:visited {
+      color: #fef3c7;
+    }
+
+    a.text-amber-100:hover {
+      color: #fde68a;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 5rem;
+    }
+
+    ::selection {
+      background: #fde68a;
+      color: #171717;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
     }
   </style>
 </head>
 
 <body class="antialiased">
-  <header class="sticky top-0 z-50 border-b border-neutral-800/80 bg-neutral-950/85 px-4 py-4 backdrop-blur-md sm:px-6 lg:px-8">
-    <div class="container mx-auto flex justify-between items-center">
-      <h1 class="text-sm font-semibold uppercase tracking-[0.22em] text-neutral-100">
-        <a href="{{ '/' | prepend: site.baseurl }}" class="transition hover:text-amber-100">{{ site.title }}</a>
-      </h1>
-      <nav>
-        <ul class="flex flex-wrap justify-end gap-x-4 gap-y-2 text-xs font-semibold uppercase tracking-[0.16em] text-neutral-400 sm:gap-x-6">
-          <li><a href="{{ '/#projects' | prepend: site.baseurl }}" class="transition hover:text-amber-100">Work</a></li>
-          <li><a href="{{ '/#skills' | prepend: site.baseurl }}" class="transition hover:text-amber-100">How I build</a></li>
-          <li><a href="{{ '/#about' | prepend: site.baseurl }}" class="transition hover:text-amber-100">About</a></li>
-          <li><a href="{{ '/blog/' | prepend: site.baseurl }}" class="transition hover:text-amber-100{% if page.url contains '/blog' %} text-amber-100{% endif %}">Blog</a></li>
-          <li><a href="{{ '/#contact' | prepend: site.baseurl }}" class="transition hover:text-amber-100">Contact</a></li>
+  <header class="sticky top-0 z-50 border-b border-neutral-800 bg-neutral-950 px-4 sm:px-6 lg:px-8">
+    <div class="container mx-auto flex min-h-16 max-w-6xl items-center justify-between gap-5">
+      <p class="shrink-0 text-sm font-semibold tracking-[-0.01em] text-neutral-100">
+        <a href="{{ '/' | prepend: site.baseurl }}" class="transition hover:text-amber-100 focus:outline-none focus:ring-2 focus:ring-amber-100 focus:ring-offset-4 focus:ring-offset-neutral-950">
+          Isaac Hua
+        </a>
+      </p>
+
+      <nav aria-label="Primary">
+        <ul class="flex items-center gap-x-5 text-sm font-medium text-neutral-400 sm:gap-x-7">
+          <li><a href="{{ '/#projects' | prepend: site.baseurl }}" class="transition hover:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-amber-100 focus:ring-offset-4 focus:ring-offset-neutral-950">Work</a></li>
+          <li class="hidden sm:list-item"><a href="{{ '/#approach' | prepend: site.baseurl }}" class="transition hover:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-amber-100 focus:ring-offset-4 focus:ring-offset-neutral-950">Approach</a></li>
+          <li class="hidden md:list-item"><a href="{{ '/#about' | prepend: site.baseurl }}" class="transition hover:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-amber-100 focus:ring-offset-4 focus:ring-offset-neutral-950">About</a></li>
+          <li><a href="{{ '/blog/' | prepend: site.baseurl }}" class="text-amber-100 transition hover:text-amber-200 focus:outline-none focus:ring-2 focus:ring-amber-100 focus:ring-offset-4 focus:ring-offset-neutral-950" aria-current="page">Writing</a></li>
+          <li><a href="{{ '/#contact' | prepend: site.baseurl }}" class="transition hover:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-amber-100 focus:ring-offset-4 focus:ring-offset-neutral-950">Contact</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main class="container mx-auto px-4 py-12 sm:px-6 lg:px-8">
+  <main class="container mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
     {{ content }}
   </main>
 
   <footer class="border-t border-neutral-800 px-4 py-8 text-sm text-neutral-500 sm:px-6 lg:px-8">
-    <div class="container mx-auto flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+    <div class="container mx-auto flex max-w-6xl flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
       <p>&copy; {{ "now" | date: "%Y" }} Isaac Hua.</p>
-      <a href="{{ '/' | prepend: site.baseurl }}" class="font-semibold uppercase tracking-[0.16em] transition hover:text-amber-100">Home</a>
+      <a href="{{ '/' | prepend: site.baseurl }}" class="font-semibold text-neutral-400 transition hover:text-amber-100 focus:outline-none focus:ring-2 focus:ring-amber-100 focus:ring-offset-4 focus:ring-offset-neutral-950">
+        Portfolio &rarr;
+      </a>
     </div>
   </footer>
-
-  <script>
-    const sections = document.querySelectorAll('.fade-in-section');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('is-visible'); });
-    }, { threshold: 0.1 });
-    sections.forEach(s => observer.observe(s));
-
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', e => {
-        const t = document.querySelector(a.getAttribute('href'));
-        if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
-      });
-    });
-  </script>
 </body>
 </html>

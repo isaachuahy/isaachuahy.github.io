@@ -3,146 +3,77 @@ layout: home
 title: "Home"
 ---
 
-<section id="hero" class="min-h-screen flex items-center px-4 sm:px-6 lg:px-8 fade-in-section">
+<section id="hero" class="px-4 pb-14 pt-10 sm:px-6 sm:pb-24 sm:pt-24 lg:px-8 lg:pb-32 lg:pt-28">
     <div class="container mx-auto max-w-6xl">
-        <div class="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+        <div class="grid gap-8 sm:gap-12 min-[900px]:grid-cols-[minmax(0,1.25fr)_minmax(20rem,0.75fr)] min-[900px]:items-start">
             <div>
-                <p class="mb-5 text-sm font-semibold uppercase tracking-[0.22em] text-amber-200">
+                <p class="mb-5 text-sm font-semibold text-amber-200 sm:mb-6">
                     Applied AI · Data systems · Product engineering
                 </p>
-                <h2 class="mb-6 max-w-4xl text-4xl font-bold leading-tight text-neutral-50 sm:text-5xl md:text-6xl">
-                    Building systems that turn messy context into decisions people can act on.
+                <h2 class="max-w-5xl text-[2.625rem] font-bold leading-[1] tracking-[-0.035em] text-neutral-50 sm:text-6xl sm:leading-[0.98] min-[900px]:text-[4rem]">
+                    I turn ambiguous problems into systems people can use.
                 </h2>
-                <p class="max-w-3xl text-lg leading-8 text-neutral-300 sm:text-xl">
-                    I work across data science, applied AI, and product engineering: assistants that understand goals and calendars, 
-                    ML systems that stay observable, and tools that keep humans in control before automation touches the outside world.
+                <p class="mt-5 max-w-3xl text-base leading-7 text-neutral-300 sm:mt-7 sm:text-xl sm:leading-8">
+                    Outcome-focused and practical, but curious enough to question the obvious solution. I build from idea through evaluation, making tradeoffs visible and keeping people in control.
                 </p>
 
-                <div class="mt-10 flex flex-col gap-3 sm:flex-row">
-                    <a href="#projects" class="inline-flex justify-center border border-amber-200/70 px-5 py-3 text-sm font-semibold text-amber-100 transition hover:border-amber-100 hover:bg-amber-100 hover:text-neutral-950">
-                        Read the work
+                <div class="mt-7 flex flex-wrap items-center gap-x-5 gap-y-4 sm:mt-9 sm:gap-x-6">
+                    <a href="#projects" class="inline-flex min-h-11 items-center justify-center bg-amber-200 px-4 py-2.5 text-sm font-semibold text-neutral-950 transition hover:bg-amber-100 focus:outline-none focus:ring-2 focus:ring-amber-100 focus:ring-offset-4 focus:ring-offset-neutral-950 sm:min-h-12 sm:px-5 sm:py-3">
+                        See selected work
                     </a>
-                    <a href="#skills" class="inline-flex justify-center border border-neutral-700 px-5 py-3 text-sm font-semibold text-neutral-200 transition hover:border-neutral-400 hover:text-white">
-                        How I build
+                    <a href="#approach" class="text-sm font-semibold text-neutral-200 underline decoration-neutral-700 underline-offset-8 transition hover:text-amber-100 hover:decoration-amber-200 focus:outline-none focus:ring-2 focus:ring-amber-100 focus:ring-offset-4 focus:ring-offset-neutral-950">
+                        Read my approach
                     </a>
                 </div>
             </div>
 
-            <aside class="border-y border-neutral-800 py-8 lg:border-l lg:border-y-0 lg:py-0 lg:pl-10">
-                <img src="images/ISAAC_HUA_PICTURE_CROPPED.jpg" alt="Isaac Hua" class="mx-auto mb-8 h-44 w-44 rounded-full border border-neutral-700 object-cover sm:h-56 sm:w-56">
-                <div class="space-y-6">
-                    <div>
-                        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">Current focus</p>
-                        <p class="mt-2 text-lg leading-7 text-neutral-200">
-                            Goal-aware assistants, operational data products, and simple systems that make complex workflows easier to steer.
-                        </p>
-                    </div>
-                    <div class="grid grid-cols-1 gap-4 text-sm text-neutral-300 sm:grid-cols-2 lg:grid-cols-1">
-                        <div class="border-t border-neutral-800 pt-4">
-                            <p class="font-semibold text-neutral-100">David</p>
-                            <p class="mt-1 text-neutral-400">Planning, calendar context, memory, approval-gated execution.</p>
-                        </div>
-                        <div class="border-t border-neutral-800 pt-4">
-                            <p class="font-semibold text-neutral-100">Forma Impian · Snowpea</p>
-                            <p class="mt-1 text-neutral-400">Current systems kept close until the implementation details are ready to publish.</p>
-                        </div>
-                    </div>
+            <aside class="grid grid-cols-[4.5rem_1fr] items-center gap-4 sm:grid-cols-[5.5rem_1fr] sm:gap-5 min-[900px]:block min-[900px]:justify-self-end">
+                <img src="images/ISAAC_HUA_PICTURE_CROPPED.jpg" alt="Isaac Hua" class="h-16 w-16 rounded-full object-cover sm:h-24 sm:w-24 min-[900px]:mb-6 min-[900px]:h-72 min-[900px]:w-60 min-[900px]:rounded-2xl min-[900px]:object-top">
+                <div>
+                    <p class="text-sm font-semibold text-neutral-100">Isaac Hua</p>
+                    <p class="mt-1 max-w-xs text-sm leading-6 text-neutral-400">
+                        Data scientist and product-minded engineer.
+                    </p>
                 </div>
             </aside>
         </div>
-    </div>
-</section>
 
-<section id="about" class="border-t border-neutral-800 px-4 py-20 sm:px-6 sm:py-28 lg:px-8 fade-in-section">
-    <div class="container mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.7fr_1.3fr]">
-        <div>
-            <p class="text-sm font-semibold uppercase tracking-[0.22em] text-neutral-500">About</p>
-            <h3 class="mt-3 text-3xl font-bold text-neutral-50 sm:text-4xl">I build solutions from ideation through to evaluation.</h3>
-        </div>
-        <div class="space-y-6 text-lg leading-8 text-neutral-300">
-            <p>
-                A model is only useful when it changes a decision, fits into the workflow around it, and fails in ways people can understand. 
-                
-
-                That is the layer I specialise in: context, interfaces, constraints, and the careful handoff from recommendation to execution.
-            </p>
-            <p>
-                I have worked as a Data Analyst at Dayforce and as a Data Scientist for Catholic Crosscultural Services and The BRIDGE, turning messy data and ambiguous goals into decisions, dashboards, models, and practical AI workflows.
-            </p>
-            <p>
-                My implementation approach is to build systems with explicit tradeoffs. 
-                
-
-                Clear data flow, narrow automation boundaries, and enough observability to know when the system should pause instead of pretending to be certain.
-            </p>
+        <div class="mt-10 grid gap-4 border-t border-neutral-800 pt-6 text-sm leading-6 text-neutral-300 sm:mt-14 sm:grid-cols-2 sm:gap-8 sm:pt-7 lg:mt-20">
+            <p><span class="font-semibold text-neutral-100">Currently:</span> building goal-aware assistants and operational data products.</p>
+            <p><span class="font-semibold text-neutral-100">Experience:</span> data work at Dayforce, Catholic Crosscultural Services, and The BRIDGE.</p>
         </div>
     </div>
 </section>
 
-<section id="projects" class="border-t border-neutral-800 px-4 py-20 sm:px-6 sm:py-28 lg:px-8 fade-in-section">
+<section id="projects" class="px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-32">
     <div class="container mx-auto max-w-6xl">
-        <div class="mb-12 grid gap-8 lg:grid-cols-[0.75fr_1.25fr]">
-            <div>
-                <p class="text-sm font-semibold uppercase tracking-[0.22em] text-neutral-500">Current systems</p>
-                <h3 class="mt-3 text-3xl font-bold text-neutral-50 sm:text-4xl">Built around real workflows.</h3>
-            </div>
-            <p class="text-lg leading-8 text-neutral-300">
-                The through-line is control: use AI and data to reduce cognitive load, expose the next useful decision, and keep irreversible actions behind deliberate approval.
+        <div class="mb-14 max-w-3xl">
+            <p class="text-sm font-semibold text-amber-200">Selected work</p>
+            <h3 class="mt-4 text-4xl font-bold tracking-[-0.03em] text-neutral-50 sm:text-5xl">
+                Evidence before adjectives.
+            </h3>
+            <p class="mt-5 text-lg leading-8 text-neutral-300">
+                Systems built for real decisions, with their constraints and evidence visible.
             </p>
         </div>
 
         {% assign current_case_studies = site.data.case_studies | where: "group", "current" %}
         {% comment %}
-        Current case studies are data-driven so the homepage can grow without duplicating project structure.
+        Current case studies stay data-driven so evidence can evolve without duplicating project structure.
         {% endcomment %}
         {% for case_study in current_case_studies %}
         {% include case-study-featured.html case_study=case_study %}
         {% endfor %}
 
-        <div class="grid gap-0 lg:grid-cols-2">
-            <article class="border-b border-neutral-800 py-8 lg:border-r lg:pr-8">
-                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-neutral-500">Current work</p>
-                <h4 class="mt-2 text-2xl font-bold text-neutral-50">Forma Impian</h4>
-                <dl class="mt-6 space-y-4 text-sm leading-6 text-neutral-300">
-                    <div>
-                        <dt class="font-semibold text-neutral-100">Status</dt>
-                        <dd>In progress.</dd>
-                    </div>
-                    <div>
-                        <dt class="font-semibold text-neutral-100">Focus</dt>
-                        <dd>Booking system for property & facility management</dd>
-                    </div>
-                </dl>
-            </article>
-
-            <article class="border-b border-neutral-800 py-8 lg:pl-8">
-                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-neutral-500">Current work</p>
-                <h4 class="mt-2 text-2xl font-bold text-neutral-50">Snowpea</h4>
-                <dl class="mt-6 space-y-4 text-sm leading-6 text-neutral-300">
-                    <div>
-                        <dt class="font-semibold text-neutral-100">Status</dt>
-                        <dd>In progress.</dd>
-                    </div>
-                    <div>
-                        <dt class="font-semibold text-neutral-100">Focus</dt>
-                        <dd>Beauty and wellness service platform.</dd>
-                    </div>
-                </dl>
-            </article>
-        </div>
-
         {% assign past_case_studies = site.data.case_studies | where: "group", "past" %}
         {% comment %}
-        Completed projects use the same evidence-first schema as current systems, but render more compactly.
+        Completed projects use the same evidence-first schema, rendered compactly for quick comparison.
         {% endcomment %}
-        <div class="mt-16">
-            <div class="mb-8 grid gap-6 lg:grid-cols-[0.75fr_1.25fr]">
-                <div>
-                    <p class="text-sm font-semibold uppercase tracking-[0.22em] text-neutral-500">Completed work</p>
-                    <h4 class="mt-3 text-2xl font-bold text-neutral-50 sm:text-3xl">Past projects with inspectable evidence.</h4>
-                </div>
-                <p class="text-base leading-7 text-neutral-300">
-                    These are earlier projects that shaped how I think about production-minded ML, model comparison, and technical synthesis.
+        <div class="mt-20">
+            <div class="mb-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+                <h4 class="text-2xl font-bold tracking-[-0.02em] text-neutral-50 sm:text-3xl">More completed work</h4>
+                <p class="max-w-xl text-sm leading-6 text-neutral-400">
+                    Production-minded ML, comparative modelling, and technical synthesis.
                 </p>
             </div>
 
@@ -155,79 +86,96 @@ title: "Home"
     </div>
 </section>
 
-<section id="skills" class="border-t border-neutral-800 px-4 py-20 sm:px-6 sm:py-28 lg:px-8 fade-in-section">
-    <div class="container mx-auto max-w-6xl">
-        <div class="mb-12 grid gap-8 lg:grid-cols-[0.75fr_1.25fr]">
-            <div>
-                <p class="text-sm font-semibold uppercase tracking-[0.22em] text-neutral-500">How I build</p>
-                <h3 class="mt-3 text-3xl font-bold text-neutral-50 sm:text-4xl">The stack matters less than the boundary.</h3>
-            </div>
-            <p class="text-lg leading-8 text-neutral-300">
-                I like tools that make the system easier to reason about. Production ready, but not more complex than it needs to be.
-                The important decisions are usually about what context enters the model, what actions it can take, what gets logged, and when a human needs the final say.
+<section id="approach" class="bg-neutral-900 px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-32">
+    <div class="container mx-auto grid max-w-6xl gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+        <div>
+            <p class="text-sm font-semibold text-amber-200">How I work</p>
+            <h3 class="mt-4 text-4xl font-bold tracking-[-0.03em] text-neutral-50 sm:text-5xl">
+                Practical by default.<br>Curious on purpose.
+            </h3>
+            <p class="mt-6 max-w-xl text-lg leading-8 text-neutral-300">
+                The stack matters less than whether the system stays useful and remains under control. I keep improving how I work as the evidence changes.
             </p>
         </div>
 
-        <div class="grid gap-0 border-y border-neutral-800 lg:grid-cols-4">
-            <article class="border-b border-neutral-800 py-8 lg:border-b-0 lg:border-r lg:pr-6">
-                <h4 class="text-xl font-bold text-neutral-50">Context before automation</h4>
-                <p class="mt-4 text-sm leading-7 text-neutral-300">
-                    Assistants should know the relevant goals, state, and constraints before they suggest an action.
-                </p>
-                <p class="mt-5 text-xs font-semibold uppercase tracking-[0.18em] text-neutral-500">
-                    Gemini · LLM ops · prompt design · tool use
-                </p>
-            </article>
+        <ol class="space-y-10">
+            <li class="grid gap-3 sm:grid-cols-[9rem_1fr]">
+                <p class="text-sm font-semibold text-neutral-500">Understand</p>
+                <div>
+                    <h4 class="text-xl font-bold text-neutral-50">Start with the decision.</h4>
+                    <p class="mt-2 max-w-2xl leading-7 text-neutral-300">
+                        Understand the real workflow and the cost of error before choosing a model or tool.
+                    </p>
+                </div>
+            </li>
+            <li class="grid gap-3 sm:grid-cols-[9rem_1fr]">
+                <p class="text-sm font-semibold text-neutral-500">Build</p>
+                <div>
+                    <h4 class="text-xl font-bold text-neutral-50">Make tradeoffs explicit.</h4>
+                    <p class="mt-2 max-w-2xl leading-7 text-neutral-300">
+                        Prefer narrow automation boundaries and the simplest implementation that can be operated reliably.
+                    </p>
+                </div>
+            </li>
+            <li class="grid gap-3 sm:grid-cols-[9rem_1fr]">
+                <p class="text-sm font-semibold text-neutral-500">Evaluate</p>
+                <div>
+                    <h4 class="text-xl font-bold text-neutral-50">Measure what changes.</h4>
+                    <p class="mt-2 max-w-2xl leading-7 text-neutral-300">
+                        Connect evaluation to the decision being supported, then keep enough observability to know when the system should pause.
+                    </p>
+                </div>
+            </li>
+            <li class="grid gap-3 sm:grid-cols-[9rem_1fr]">
+                <p class="text-sm font-semibold text-neutral-500">Improve</p>
+                <div>
+                    <h4 class="text-xl font-bold text-neutral-50">Treat every result as feedback.</h4>
+                    <p class="mt-2 max-w-2xl leading-7 text-neutral-300">
+                        Use each result to sharpen the work and rethink my assumptions instead of protecting the first answer.
+                    </p>
+                </div>
+            </li>
+        </ol>
+    </div>
+</section>
 
-            <article class="border-b border-neutral-800 py-8 lg:border-b-0 lg:border-r lg:px-6">
-                <h4 class="text-xl font-bold text-neutral-50">Approval before side effects</h4>
-                <p class="mt-4 text-sm leading-7 text-neutral-300">
-                    If a system can change calendars or affect a workflow, the control surface has to be explicit.
-                </p>
-                <p class="mt-5 text-xs font-semibold uppercase tracking-[0.18em] text-neutral-500">
-                    FastAPI · Telegram · Google APIs · webhooks
-                </p>
-            </article>
-
-            <article class="border-b border-neutral-800 py-8 lg:border-b-0 lg:border-r lg:px-6">
-                <h4 class="text-xl font-bold text-neutral-50">Evaluation where it counts</h4>
-                <p class="mt-4 text-sm leading-7 text-neutral-300">
-                    Models and dashboards need checks that match the decision they support. Metrics don't matter if they don't connect to the real-world.
-                </p>
-                <p class="mt-5 text-xs font-semibold uppercase tracking-[0.18em] text-neutral-500">
-                    Python · R · PyTorch · scikit-learn · forecasting
-                </p>
-            </article>
-
-            <article class="py-8 lg:pl-6">
-                <h4 class="text-xl font-bold text-neutral-50">Making systems stay legible</h4>
-                <p class="mt-4 text-sm leading-7 text-neutral-300">
-                    I prefer deployment choices that are easy to inspect, recover, and maintain while ensuring reliability.
-                </p>
-                <p class="mt-5 text-xs font-semibold uppercase tracking-[0.18em] text-neutral-500">
-                    AWS Lightsail · PostgreSQL · Backblaze B2 · webhooks
-                </p>
-            </article>
+<section id="about" class="px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-32">
+    <div class="container mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.65fr_1.35fr] lg:gap-20">
+        <div>
+            <p class="text-sm font-semibold text-amber-200">A little context</p>
+            <h3 class="mt-4 text-3xl font-bold tracking-[-0.025em] text-neutral-50 sm:text-4xl">
+                I like the layer between an idea and its consequences.
+            </h3>
+        </div>
+        <div class="max-w-3xl space-y-6 text-lg leading-8 text-neutral-300">
+            <p>
+                I have worked as a Data Analyst at Dayforce and as a Data Scientist for Catholic Crosscultural Services and The BRIDGE, turning messy data and ambiguous goals into dashboards, models, decisions, and practical AI workflows.
+            </p>
+            <p>
+                The work I enjoy most begins with understanding a domain and ends only after the result teaches me what should change next.
+            </p>
         </div>
     </div>
 </section>
 
-<section id="contact" class="border-t border-neutral-800 px-4 py-20 sm:px-6 sm:py-28 lg:px-8 fade-in-section">
-    <div class="container mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.7fr_1.3fr]">
-        <div>
-            <p class="text-sm font-semibold uppercase tracking-[0.22em] text-neutral-500">Contact</p>
-            <h3 class="mt-3 text-3xl font-bold text-neutral-50 sm:text-4xl">Useful problems welcome!</h3>
-        </div>
-        <div>
-            <p class="max-w-3xl text-lg leading-8 text-neutral-300">
-                I'm interested in practical AI systems, data products, technical operating problems, and collaborations where clear thinking matters as much as implementation.
-            </p>
-            <div class="mt-8 flex flex-col gap-3 text-lg sm:flex-row sm:flex-wrap">
-                <a href="mailto:isaachuahy@gmail.com" class="text-amber-100 transition hover:text-amber-200">isaachuahy@gmail.com</a>
-                <span class="hidden text-neutral-700 sm:inline">/</span>
-                <a href="https://www.linkedin.com/in/isaachua/" target="_blank" rel="noopener noreferrer" class="text-amber-100 transition hover:text-amber-200">LinkedIn</a>
-                <span class="hidden text-neutral-700 sm:inline">/</span>
-                <a href="https://github.com/isaachuahy" target="_blank" rel="noopener noreferrer" class="text-amber-100 transition hover:text-amber-200">GitHub</a>
+<section id="contact" class="px-4 pb-24 pt-12 sm:px-6 sm:pb-32 lg:px-8">
+    <div class="container mx-auto max-w-6xl border-t border-neutral-800 pt-14">
+        <div class="grid gap-8 lg:grid-cols-[1.25fr_0.75fr] lg:items-end">
+            <div>
+                <p class="text-sm font-semibold text-amber-200">Get in touch</p>
+                <h3 class="mt-4 max-w-3xl text-4xl font-bold tracking-[-0.03em] text-neutral-50 sm:text-5xl">
+                    Bring me a useful problem and an honest constraint.
+                </h3>
+            </div>
+            <div class="flex flex-col items-start gap-4 lg:items-end">
+                <a href="mailto:isaachuahy@gmail.com" class="text-lg font-semibold text-neutral-100 underline decoration-neutral-700 underline-offset-8 transition hover:text-amber-100 hover:decoration-amber-200 focus:outline-none focus:ring-2 focus:ring-amber-100 focus:ring-offset-4 focus:ring-offset-neutral-950">
+                    isaachuahy@gmail.com
+                </a>
+                <div class="flex gap-5 text-sm text-neutral-400">
+                    <a href="https://www.linkedin.com/in/isaachua/" target="_blank" rel="noopener noreferrer" class="transition hover:text-amber-100">LinkedIn</a>
+                    <a href="https://github.com/isaachuahy" target="_blank" rel="noopener noreferrer" class="transition hover:text-amber-100">GitHub</a>
+                    <a href="{{ '/blog/' | prepend: site.baseurl }}" class="transition hover:text-amber-100">Writing</a>
+                </div>
             </div>
         </div>
     </div>
