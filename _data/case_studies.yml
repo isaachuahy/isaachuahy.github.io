@@ -8,7 +8,7 @@
   summary: An AI executive assistant that turns long-term goals into weekly plans using live calendar context and approval-gated scheduling.
   problem: Planning & scheduling breaks when goals live in one place, the calendar lives somewhere else, and daily decisions happen under pressure. Enterprise & common solutions like Motion or TrevorAI conduct planning & scheduling with algorithms and un-intuitive decision-making that don't reflect the reality of human workflows. David exists to keep all these layers in conversation and understands how you work.
   system_built:
-    - Telegram conversational interface
+    - Telegram conversational interface and context management
     - Google Calendar context injection
     - Approval-gated calendar writes
     - Session-aware memory
@@ -16,9 +16,9 @@
     - Decision logs grounded in weekly state
   technical_decisions:
     # The strongest operating-boundary decision stays first because compact views use it as the project signal.
-    - Calendar writes require explicit approval so the assistant can suggest actions without silently changing a user's schedule.
+    - Calendar writes require explicit approval so David suggests actions without silently changing the user's calendar or context.
+    - Live calendar context keeps recommendations scoped to historical and current constraints rather than generic planning advice.
     - Memory is scoped to planning context so continuity stays useful and grounded.
-    - Live calendar context keeps recommendations tied to real constraints rather than generic planning advice.
   stack:
     - Python
     - FastAPI
@@ -29,6 +29,61 @@
   evidence:
     - label: Repository
       url: https://github.com/isaachuahy/david
+
+
+- slug: snowpea
+  title: Snowpea
+  eyebrow: Ongoing project
+  status: Development paused by founders
+  group: past
+  image: images/snowpea.png
+  image_alt: Snowpea
+  summary: Beauty services booking platform that connects home studio nail and lash technicians with customers
+  problem: NDA
+  system_built:
+    - Booking confirmation and payment flows
+    - Customer and technician dashboards
+    - Subscription plan handling
+  technical_decisions:
+    # Compact project rows surface the first decision, so it leads with the core implementation tradeoff.
+    - Reliable, consistent, idempotent, user-friendly booking & payment flows.
+    - Used Supabase for authentication, database, and storage to reduce operational overhead and focus on product development.
+    - Used Stripe for payments to leverage a well-supported and secure payment platform.
+    - Used Vercel for hosting to simplify deployment and scaling.
+  stack:
+    - TypeScript
+    - Vercel
+    - Supabase
+    - Stripe
+  evidence:
+    - label: Application
+      url: https://snowpea.ca
+
+- slug: AdReady AI
+  title: AdReady AI
+  eyebrow: Completed project
+  status: Completed MVP & handed off
+  group: past
+  image: images/adready_ai_logo.jpeg
+  image_alt: AdReady AI
+  summary: Creative evaluation platform that helps consumer packaged goods brands review video ads before launch
+  system_built:
+    - Multimodal media data ingestion and storage
+    - Video and image analysis pipelines
+    - Ad performance prediction models
+    - User-facing dashboard for ad review and feedback
+  technical_decisions:
+    # Compact project rows surface the first decision, so it leads with the core implementation tradeoff.
+    - Separating edge inference and media processing into separate services to optimise for low-latency campaign review.
+
+  stack:
+    - Supabase
+    - Vercel
+    - OpenRouter
+    - Railway Python workers
+  evidence:
+    - label: Repository
+      url: https://github.com/AdReadyAI/adready-ai
 
 - slug: ml-monitor
   title: ML Model Monitoring System
