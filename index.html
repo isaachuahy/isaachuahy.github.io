@@ -50,13 +50,12 @@ title: "Home"
 
 <section id="projects" class="px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-32">
     <div class="container mx-auto max-w-6xl">
-        <div class="mb-14 max-w-3xl">
-            <p class="text-sm font-semibold text-amber-200">Selected work</p>
+        <div class="mb-10 max-w-3xl">
             <h3 class="mt-4 text-4xl font-bold tracking-[-0.03em] text-neutral-50 sm:text-5xl">
                 Contracted work and projects
             </h3>
             <p class="mt-5 text-lg leading-8 text-neutral-300">
-                Systems built keeping considerate of cost, latency & product stage.
+                Built these systems considerate of cost, latency & product stage.
             </p>
         </div>
 
@@ -72,16 +71,10 @@ title: "Home"
         {% comment %}
         Completed projects use the same evidence-first schema, rendered compactly for quick comparison.
         {% endcomment %}
-        <div class="mt-20">
-            <div class="mb-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-                <h4 class="text-2xl font-bold tracking-[-0.02em] text-neutral-50 sm:text-3xl">More contracted work and projects</h4>
-            </div>
-
-            <div class="border-y border-neutral-800">
-                {% for case_study in past_case_studies %}
-                {% include case-study-compact.html case_study=case_study %}
-                {% endfor %}
-            </div>
+        <div class="mt-12">
+            {% for case_study in past_case_studies %}
+            {% include case-study-compact.html case_study=case_study %}
+            {% endfor %}
         </div>
     </div>
 </section>
@@ -145,8 +138,7 @@ title: "Home"
 <section id="about" class="px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-32">
     <div class="container mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.65fr_1.35fr] lg:gap-20">
         <div>
-            <p class="text-sm font-semibold text-amber-200">Some more context</p>
-            <h3 class="mt-4 text-3xl font-bold tracking-[-0.025em] text-neutral-50 sm:text-4xl">
+            <h3 class="text-3xl font-bold tracking-[-0.025em] text-neutral-50 sm:text-4xl">
                 Data scientist by training, AI engineer by practice.
             </h3>
         </div>
