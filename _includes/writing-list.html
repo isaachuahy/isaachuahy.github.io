@@ -1,0 +1,9 @@
+{% assign post_limit = include.limit | default: site.posts.size %}
+<ul class="writing-list">
+  {% for post in site.posts limit:post_limit %}
+  <li class="writing-entry">
+    <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+    <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %Y" }}</time>
+  </li>
+  {% endfor %}
+</ul>

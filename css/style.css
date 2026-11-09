@@ -1,114 +1,190 @@
-/* Reset some default browser styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+:root {
+  --ink: #0a1128; /* Primary: navy for headings, body text, and link text. */
+  --paper: #fffcf7; /* Background: warm linen throughout the site. */
+  --accent: #208aae; /* Accent: teal for disclosure icons, underlines, and focus rings. */
+  --reading-width: 44rem;
+  --work-width: 62rem;
+  font: 100% / 1.6 system-ui, sans-serif;
+  color: var(--ink);
+  background: var(--paper);
 }
 
-body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  background: #f9f9f9;
-  color: #333;
+* { box-sizing: border-box; }
+body { margin: 0; }
+h1, h2, p { margin: 0; }
+img { display: block; max-width: 100%; }
+
+a {
+  color: inherit;
+  text-decoration-color: var(--accent);
+  text-underline-offset: .2em;
 }
 
-/* Navigation styles */
-header nav {
-  background: #333;
-  color: #fff;
+a:hover { text-decoration-thickness: 2px; }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 5px;
 }
 
-header nav ul {
+.reading, .work {
+  width: calc(100% - 2.5rem);
+  margin-inline: auto;
+}
+
+.reading { max-width: var(--reading-width); }
+.work { max-width: var(--work-width); }
+
+.site-header {
   display: flex;
-  list-style: none;
-  justify-content: center;
-  padding: 1rem;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: .5rem 1.25rem;
+  padding-block: 1.75rem;
+  font-size: .875rem;
 }
 
-header nav ul li {
-  margin: 0 15px;
+.site-header a { text-decoration: none; }
+.site-header a:hover { text-decoration: underline; }
+.site-name { font-weight: 700; }
+.site-header nav, .contact { display: flex; flex-wrap: wrap; gap: .5rem 1.25rem; }
+
+.opening {
+  display: flow-root;
+  margin-block: clamp(2rem, 5vw, 4rem) clamp(2.75rem, 6vw, 4.5rem);
 }
 
-header nav ul li a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
+.opening h1 {
+  font-size: clamp(2rem, 5.5vw, 3.25rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -.045em;
+  margin-bottom: .55rem;
 }
 
-/* Hero section */
-.hero {
-  text-align: center;
-  padding: 3rem 0;
-  background: #e2e2e2;
+.tagline { font-size: clamp(1rem, 2.4vw, 1.25rem); line-height: 1.35; }
+.opening p + p, .about p + p { margin-top: .65rem; }
+
+.portrait {
+  float: right;
+  width: clamp(6rem, 23vw, 11rem);
+  margin-left: clamp(1rem, 5vw, 3rem);
+  margin-bottom: .65rem;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center 25%;
+  border-radius: .6rem;
 }
 
-/* Section styling */
-section {
-  padding: 2rem;
-  max-width: 960px;
-  margin: 0 auto;
+.section-title {
+  font-size: 1.45rem;
+  line-height: 1.2;
+  letter-spacing: -.025em;
+  margin-bottom: 1.25rem;
 }
 
-/* Projects grid */
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 2.25rem 1.75rem;
 }
 
-.project-card {
-  background: #fff;
-  padding: 1.5rem;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  transition: box-shadow 0.3s;
-}
-
-.project-card:hover {
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.project-card a {
-  display: inline-block;
-  margin-top: 10px;
-  text-decoration: none;
-  color: #0066cc;
-}
-
-/* Form styling */
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  max-width: 500px;
-  margin: 0 auto;
-}
-
-form input, form textarea {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-form button {
-  padding: 10px;
-  border: none;
-  background: #333;
-  color: #fff;
-  font-size: 1rem;
-  border-radius: 4px;
+.project summary {
+  display: block;
+  list-style: none;
   cursor: pointer;
+  border-radius: .6rem .6rem .15rem .15rem;
 }
 
-form button:hover {
-  background: #555;
+.project summary::-webkit-details-marker { display: none; }
+
+.project-image {
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  object-fit: cover;
+  object-position: center 35%;
+  border-radius: .6rem;
+  background: var(--ink);
 }
 
-/* Footer */
-footer {
-  text-align: center;
-  padding: 1rem 0;
-  background: #333;
-  color: #fff;
-  margin-top: 2rem;
+.project-image.contain { object-fit: contain; object-position: center; }
+.project-image.top { object-position: center top; }
+
+.project-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: .75rem;
+  margin-top: .75rem;
+}
+
+.project-title { font-size: 1.125rem; font-weight: 700; line-height: 1.3; }
+.project summary:hover .project-title {
+  text-decoration: underline var(--accent);
+  text-underline-offset: .2em;
+}
+
+.project-hook { display: block; margin-top: .25rem; }
+.toggle { color: var(--accent); font-weight: 700; font-size: 1.25rem; line-height: 1; }
+.toggle::before { content: '+'; }
+.project[open] .toggle::before { content: '−'; }
+
+.project-detail { padding-top: .9rem; }
+.project-links { display: flex; flex-wrap: wrap; gap: .25rem 1rem; margin-top: .65rem; }
+.project-links a { font-weight: 650; }
+
+.about { margin-top: clamp(3rem, 7vw, 5.5rem); }
+.writing { margin-top: 2rem; }
+.writing .section-title { margin-bottom: .65rem; }
+
+.writing-list {
+  display: grid;
+  gap: .6rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.writing-entry {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: .15rem .85rem;
+}
+
+.writing-entry a { font-weight: 600; }
+.writing-entry time, .article-date { font-size: .875rem; }
+.writing-entry time { white-space: nowrap; }
+.writing-archive { display: inline-block; margin-top: .6rem; }
+
+.site-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: .35rem 1.25rem;
+  margin-top: 1.75rem;
+  padding-bottom: 2.75rem;
+}
+
+.page { margin-top: clamp(2rem, 5vw, 4rem); }
+.page h1 {
+  font-size: clamp(2rem, 5.5vw, 3.25rem);
+  line-height: 1.12;
+  letter-spacing: -.045em;
+}
+
+.page-header { margin-bottom: 1.5rem; }
+.page-header p, .page-header time { display: block; margin-top: .5rem; }
+.article-body { max-width: 68ch; }
+.article-body h2, .article-body h3 { margin-top: 1.6rem; }
+.article-body p, .article-body ul, .article-body ol { margin-top: .85rem; }
+.article-body img { height: auto; }
+.article-body a { overflow-wrap: anywhere; }
+.article-back { display: inline-block; margin-top: 1.6rem; }
+
+@media (max-width: 39rem) {
+  .portrait { width: clamp(5.25rem, 26vw, 7.25rem); }
+  .project-grid { grid-template-columns: 1fr; gap: 1.85rem; }
 }

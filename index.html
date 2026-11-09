@@ -1,185 +1,61 @@
 ---
-layout: home
-title: "Home"
+layout: default
 ---
 
-<section id="hero" class="px-4 pb-14 pt-10 sm:px-6 sm:pb-24 sm:pt-24 lg:px-8 lg:pb-32 lg:pt-28">
-    <div class="container mx-auto max-w-6xl">
-        <div class="grid gap-8 sm:gap-12 min-[900px]:grid-cols-[minmax(0,1.25fr)_minmax(20rem,0.75fr)] min-[900px]:items-start">
-            <div>
-                <p class="mb-5 text-sm font-semibold text-amber-200 sm:mb-6">
-                    Applied AI, data systems, product engineering
-                </p>
-                <h2 class="max-w-5xl text-[2.625rem] font-bold leading-[1] tracking-[-0.035em] text-neutral-50 sm:text-6xl sm:leading-[0.98] min-[900px]:text-[4rem]">
-                    Turning ambiguous problems into systems that you can use.
-                </h2>
-                <p class="mt-5 max-w-3xl text-base leading-7 text-neutral-300 sm:mt-7 sm:text-xl sm:leading-8">
-                    I drive towards the outcome and build practically but stay curious enough to question the obvious solution. 
-                    
-
-                    Building from ideation through to evaluation, I also value learning while keeping systems rigorous and reliable - I make tradeoffs visible and keep people in control.
-                </p>
-
-                <div class="mt-7 flex flex-wrap items-center gap-x-5 gap-y-4 sm:mt-9 sm:gap-x-6">
-                    <a href="#projects" class="inline-flex min-h-11 items-center justify-center bg-amber-200 px-4 py-2.5 text-sm font-semibold text-neutral-950 transition hover:bg-amber-100 focus:outline-none focus:ring-2 focus:ring-amber-100 focus:ring-offset-4 focus:ring-offset-neutral-950 sm:min-h-12 sm:px-5 sm:py-3">
-                        Existing work
-                    </a>
-                    <a href="#approach" class="text-sm font-semibold text-neutral-200 underline decoration-neutral-700 underline-offset-8 transition hover:text-amber-100 hover:decoration-amber-200 focus:outline-none focus:ring-2 focus:ring-amber-100 focus:ring-offset-4 focus:ring-offset-neutral-950">
-                        Read my approach
-                    </a>
-                </div>
-            </div>
-
-            <aside class="grid grid-cols-[4.5rem_1fr] items-center gap-4 sm:grid-cols-[5.5rem_1fr] sm:gap-5 min-[900px]:block min-[900px]:justify-self-end">
-                <img src="images/ISAAC_HUA_PICTURE_CROPPED.jpg" alt="Isaac Hua" class="h-16 w-16 rounded-full object-cover sm:h-24 sm:w-24 min-[900px]:mb-6 min-[900px]:h-72 min-[900px]:w-60 min-[900px]:rounded-2xl min-[900px]:object-top">
-                <div>
-                    <p class="text-sm font-semibold text-neutral-100">Isaac Hua</p>
-                    <p class="mt-1 max-w-xs text-sm leading-6 text-neutral-400">
-                        Data scientist and product-minded engineer.
-                    </p>
-                </div>
-            </aside>
-        </div>
-
-        <div class="mt-10 grid gap-4 border-t border-neutral-800 pt-6 text-sm leading-6 text-neutral-300 sm:mt-14 sm:grid-cols-2 sm:gap-8 sm:pt-7 lg:mt-20">
-            <p><span class="font-semibold text-neutral-100">Currently:</span> building operational data products. Iterating on David.</p>
-            <p><span class="font-semibold text-neutral-100">Experience:</span> engineering at PM Accelerator (AdReady AI); data work at Dayforce, Catholic Crosscultural Services, and The BRIDGE.</p>
-        </div>
-    </div>
+<section class="opening reading" id="hero" aria-labelledby="intro">
+  <img class="portrait" src="{{ '/images/ISAAC_HUA_PICTURE_CROPPED.jpg' | relative_url }}" alt="Portrait of Isaac Hua">
+  <h1 id="intro">Hi, I’m Isaac.</h1>
+  <p class="tagline">Builder of data, ML and AI systems.</p>
+  <p>I do applied AI while keeping product, UX, effectiveness and production environments at the forefront.</p>
+  <p>I define evals and success criteria, then experiment.</p>
+  <p>Love good challenges.</p>
 </section>
 
-<section id="projects" class="px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-32">
-    <div class="container mx-auto max-w-6xl">
-        <div class="mb-10 max-w-3xl">
-            <h3 class="mt-4 text-4xl font-bold tracking-[-0.03em] text-neutral-50 sm:text-5xl">
-                Contracted work and projects
-            </h3>
-            <p class="mt-5 text-lg leading-8 text-neutral-300">
-                Built these systems considerate of cost, latency & product stage.
-            </p>
+<section class="work" id="projects" aria-labelledby="work-title">
+  <h2 class="section-title" id="work-title">Selected work</h2>
+  <div class="project-grid">
+    {% for project in site.data.case_studies %}
+    {% assign project_id = project.slug | slugify %}
+    {% assign project_links = site.data.project_links[project_id] %}
+    <details class="project">
+      <summary aria-labelledby="{{ project_id }}-title" aria-describedby="{{ project_id }}-hook">
+        <img class="project-image{% if project.image_style %} {{ project.image_style }}{% endif %}" src="{{ project.image | relative_url }}" alt="{{ project.image_alt | escape }}"{% if forloop.index > 2 %} loading="lazy"{% endif %}>
+        <span class="project-label">
+          <span class="project-title" id="{{ project_id }}-title">{{ project.title | escape }}</span>
+          <span class="toggle" aria-hidden="true"></span>
+        </span>
+        <span class="project-hook" id="{{ project_id }}-hook">{{ project.hook | escape }}</span>
+      </summary>
+      <div class="project-detail">
+        <p>{{ project.summary | escape }}</p>
+        <div class="project-links">
+          {% for evidence in project.evidence %}
+          {% assign evidence_url = evidence.url %}
+          {% if evidence.field %}
+            {% assign evidence_url = project_links[evidence.field] | default: evidence_url %}
+          {% endif %}
+          {% if evidence_url %}
+          <a href="{{ evidence_url | escape }}">{{ evidence.text | escape }}</a>
+          {% endif %}
+          {% endfor %}
         </div>
-
-        {% assign current_case_studies = site.data.case_studies | where: "group", "current" %}
-        {% comment %}
-        Current case studies stay data-driven so evidence can evolve without duplicating project structure.
-        {% endcomment %}
-        {% for case_study in current_case_studies %}
-        {% include case-study-featured.html case_study=case_study %}
-        {% endfor %}
-
-        {% assign past_case_studies = site.data.case_studies | where: "group", "past" %}
-        {% comment %}
-        Completed projects use the same evidence-first schema, rendered compactly for quick comparison.
-        {% endcomment %}
-        <div class="mt-12">
-            {% for case_study in past_case_studies %}
-            {% include case-study-compact.html case_study=case_study %}
-            {% endfor %}
-        </div>
-    </div>
+      </div>
+    </details>
+    {% endfor %}
+  </div>
 </section>
 
-<section id="approach" class="bg-neutral-900 px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-32">
-    <div class="container mx-auto grid max-w-6xl gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
-        <div>
-            <p class="text-sm font-semibold text-amber-200">How do I operate to serve you better?</p>
-            <h3 class="mt-4 text-4xl font-bold tracking-[-0.03em] text-neutral-50 sm:text-5xl">
-                Outcome-focused.<br>Constraint aware.
-            </h3>
-            <p class="mt-6 max-w-xl text-lg leading-8 text-neutral-300">
-                Stack ALWAYS matters less than whether the system stays useful and remains under control. 
-                I keep improving how I work as the evidence changes.
-            </p>
-        </div>
-
-        <ol class="space-y-10">
-            <li class="grid gap-3 sm:grid-cols-[9rem_1fr]">
-                <p class="text-sm font-semibold text-neutral-500">Understand</p>
-                <div>
-                    <h4 class="text-xl font-bold text-neutral-50">Start with requirements & constraints.</h4>
-                    <p class="mt-2 max-w-2xl leading-7 text-neutral-300">
-                        What does a good tool or system look like? Can't know the answer without knowing the definitions.
-                    </p>
-                </div>
-            </li>
-            <li class="grid gap-3 sm:grid-cols-[9rem_1fr]">
-                <p class="text-sm font-semibold text-neutral-500">Build</p>
-                <div>
-                    <h4 class="text-xl font-bold text-neutral-50">Make tradeoffs explicit.</h4>
-                    <p class="mt-2 max-w-2xl leading-7 text-neutral-300">
-                        I prefer narrow automation boundaries and the simplest implementation that can be operated reliably.
-
-
-                    </p>
-                </div>
-            </li>
-            <li class="grid gap-3 sm:grid-cols-[9rem_1fr]">
-                <p class="text-sm font-semibold text-neutral-500">Evaluate</p>
-                <div>
-                    <h4 class="text-xl font-bold text-neutral-50">Measure what changes.</h4>
-                    <p class="mt-2 max-w-2xl leading-7 text-neutral-300">
-                        Connect evaluation to the decision being supported, then keep enough observability to know when the system should pause.
-                    </p>
-                </div>
-            </li>
-            <li class="grid gap-3 sm:grid-cols-[9rem_1fr]">
-                <p class="text-sm font-semibold text-neutral-500">Improve</p>
-                <div>
-                    <h4 class="text-xl font-bold text-neutral-50">Treat every result as feedback.</h4>
-                    <p class="mt-2 max-w-2xl leading-7 text-neutral-300">
-                        Use each result to sharpen the work and rethink my assumptions instead of protecting the first answer.
-                    </p>
-                </div>
-            </li>
-        </ol>
-    </div>
+<section class="about reading" id="about" aria-labelledby="about-title">
+  <h2 class="section-title" id="about-title">About me</h2>
+  <p>I studied math, stats, economics and finance at University of Toronto.<br>
+    I’ve done data work and analytics engineering at Dayforce and The BRIDGE, and AI engineering at PM Accelerator (AdReady AI &amp; YourVillage).</p>
+  <p id="approach">If you’re putting agents &amp; AI into everything while ignoring engineering + data principles, just to call yourself “AI-enabled” and “transformed”, I am <strong>NOT</strong> your guy.</p>
 </section>
 
-<section id="about" class="px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-32">
-    <div class="container mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.65fr_1.35fr] lg:gap-20">
-        <div>
-            <h3 class="text-3xl font-bold tracking-[-0.025em] text-neutral-50 sm:text-4xl">
-                Data scientist by training, AI engineer by practice.
-            </h3>
-        </div>
-        <div class="max-w-3xl space-y-6 text-lg leading-8 text-neutral-300">
-            <p>
-                I graduated from the University of Toronto with a HBsc in Mathematical Applications in Economics and Finance. Essentially, I've taken a LOT of math, stats and finance courses - I've let my curiosity guide me in my learning journey.
-            </p>
-            <p>
-                As a software engineer, I've worked at PM Accelerator and led the engineering effort on AdReady AI. 
-                With 2 years of experience, I've also worked as a Data Analyst at Dayforce and as a Data Scientist for Catholic Crosscultural Services and The BRIDGE, 
-                turning messy data and ambiguous goals into dashboards, models, decisions, and practical AI workflows.
-            </p>
-            <p>
-                I also create content on the human experience, learning science, personal development, AI/ML, and data. You can find my videos on 
-                <a href="https://www.instagram.com/journeywithisaac" target="_blank" rel="noopener noreferrer" class="font-semibold text-neutral-400 underline decoration-neutral-700 underline-offset-8 transition hover:text-amber-100 hover:decoration-amber-200 focus:outline-none focus:ring-2 focus:ring-amber-100 focus:ring-offset-4 focus:ring-offset-neutral-950">my Instagram @journeywithisaac</a> and my writing on <a href="{{ '/blog/' | prepend: site.baseurl }}" class="font-semibold text-neutral-400 underline decoration-neutral-700 underline-offset-8 transition hover:text-amber-100 hover:decoration-amber-200 focus:outline-none focus:ring-2 focus:ring-amber-100 focus:ring-offset-4 focus:ring-offset-neutral-950">my blog</a>.
-            </p>
-        </div>
-    </div>
-</section>
-
-<section id="contact" class="px-4 pb-24 pt-12 sm:px-6 sm:pb-32 lg:px-8">
-    <div class="container mx-auto max-w-6xl border-t border-neutral-800 pt-14">
-        <div class="grid gap-8 lg:grid-cols-[1.25fr_0.75fr] lg:items-end">
-            <div>
-                <p class="text-sm font-semibold text-amber-200">Get in touch</p>
-                <h3 class="mt-4 max-w-3xl text-4xl font-bold tracking-[-0.03em] text-neutral-50 sm:text-5xl">
-                    Welcoming opportunities, connections or just a chat.
-                </h3>
-            </div>
-            <div class="flex flex-col items-start gap-4 lg:items-end">
-                <a href="mailto:isaachuahy@gmail.com" class="text-lg font-semibold text-neutral-100 underline decoration-neutral-700 underline-offset-8 transition hover:text-amber-100 hover:decoration-amber-200 focus:outline-none focus:ring-2 focus:ring-amber-100 focus:ring-offset-4 focus:ring-offset-neutral-950">
-                    isaachuahy@gmail.com
-                </a>
-                <div class="flex gap-5 text-sm text-neutral-400">
-                    <a href="https://www.linkedin.com/in/isaachua/" target="_blank" rel="noopener noreferrer" class="transition hover:text-amber-100">LinkedIn</a>
-                    <a href="https://github.com/isaachuahy" target="_blank" rel="noopener noreferrer" class="transition hover:text-amber-100">GitHub</a>
-                    <a href="{{ '/blog/' | prepend: site.baseurl }}" class="transition hover:text-amber-100">Writing</a>
-                    <a href="https://www.instagram.com/journeywithisaac" target="_blank" rel="noopener noreferrer" class="transition hover:text-amber-100">IG</a>
-                    <a href="https://x.com/notrikinero" target="_blank" rel="noopener noreferrer" class="transition hover:text-amber-100">X</a>
-                </div>
-            </div>
-        </div>
-    </div>
+<section class="writing reading" id="writing" aria-labelledby="writing-title">
+  <h2 class="section-title" id="writing-title">Writing</h2>
+  {% include writing-list.html limit="3" %}
+  {% if site.posts.size > 3 %}
+  <a class="writing-archive" href="{{ '/blog/' | relative_url }}">All writing</a>
+  {% endif %}
 </section>

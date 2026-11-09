@@ -1,11 +1,12 @@
 - slug: david
-  title: David
+  title: "David"
   eyebrow: Featured system
   status: In active use
   group: current
   image: images/davidpic.png
-  image_alt: David executive AI assistant interface
-  summary: An AI executive assistant that turns long-term goals into weekly plans using live calendar context and approval-gated scheduling.
+  image_alt: "Illustration of King David with a harp"
+  hook: "I plan my week in Telegram. If David suggests moving a meeting, I get the final say."
+  summary: "David reads my Google Calendar and uses summaries its synthesisers write after our planning sessions. It also draws on my long-term goals and the background I’ve shared over time. I approve calendar changes in Telegram before David applies them. David runs on AWS Lightsail."
   problem: Planning & scheduling breaks when goals live in one place, the calendar lives somewhere else, and daily decisions happen under pressure. Enterprise & common solutions like Motion or TrevorAI conduct planning & scheduling with algorithms and un-intuitive decision-making that don't reflect the reality of human workflows. David exists to keep all these layers in conversation and understands how you work.
   system_built:
     - Telegram conversational interface and context management
@@ -28,17 +29,49 @@
     - Backblaze B2
   evidence:
     - label: Repository
-      url: https://github.com/isaachuahy/david
+      field: demo_url
+      url: https://github.com/isaachuahy/david#demo
+      text: "Watch the demo & view repository"
 
+- slug: AdReady AI
+  title: "AdReady AI"
+  eyebrow: Completed project
+  status: Completed MVP & handed off
+  group: past
+  image: images/adready_ai_logo.jpeg
+  image_alt: "AdReady AI logo"
+  image_style: contain
+  hook: "I led engineering on a tool for reviewing video ads before launch. We split media processing from inference to keep reviews responsive."
+  summary: "At PM Accelerator, I wanted brands to be able to review ads without slow media work holding up inference. We ran edge inference and media processing as separate services. That gave us two services to operate, but we could manage each workload separately. We handed off the MVP."
+  system_built:
+    - Multimodal media data ingestion and storage
+    - Video and image analysis pipelines
+    - Ad performance prediction models
+    - User-facing dashboard for ad review and feedback
+  technical_decisions:
+    # Compact project rows surface the first decision, so it leads with the core implementation tradeoff.
+    - Separating edge inference and media processing into separate services to optimise for low-latency campaign review.
+
+  stack:
+    - Supabase
+    - Vercel
+    - OpenRouter
+    - Railway Python workers
+  evidence:
+    - label: Repository
+      url: https://github.com/AdReadyAI/adready-ai
+      text: "AdReady AI on GitHub"
 
 - slug: snowpea
-  title: Snowpea
+  title: "Snowpea"
   eyebrow: Ongoing project
   status: Development paused by founders
   group: past
   image: images/snowpea.png
-  image_alt: Snowpea
-  summary: Beauty services booking platform that connects home studio nail and lash technicians with customers
+  image_alt: "Snowpea booking website"
+  image_style: top
+  hook: "Book with nail and lash artists who work from home."
+  summary: "I worked on bookings and payments so customers could book with independent artists and get a clear confirmation. Snowpea used Stripe for payments."
   problem: NDA
   system_built:
     - Booking confirmation and payment flows
@@ -58,41 +91,18 @@
   evidence:
     - label: Application
       url: https://snowpea.ca
-
-- slug: AdReady AI
-  title: AdReady AI
-  eyebrow: Completed project
-  status: Completed MVP & handed off
-  group: past
-  image: images/adready_ai_logo.jpeg
-  image_alt: AdReady AI
-  summary: Creative evaluation platform that helps consumer packaged goods brands review video ads before launch
-  system_built:
-    - Multimodal media data ingestion and storage
-    - Video and image analysis pipelines
-    - Ad performance prediction models
-    - User-facing dashboard for ad review and feedback
-  technical_decisions:
-    # Compact project rows surface the first decision, so it leads with the core implementation tradeoff.
-    - Separating edge inference and media processing into separate services to optimise for low-latency campaign review.
-
-  stack:
-    - Supabase
-    - Vercel
-    - OpenRouter
-    - Railway Python workers
-  evidence:
-    - label: Repository
-      url: https://github.com/AdReadyAI/adready-ai
+      text: "Visit Snowpea"
 
 - slug: ml-monitor
-  title: ML Model Monitoring System
+  title: "ML Model Monitoring"
   eyebrow: Completed project
   status: Completed
   group: past
   image: images/MLMonitorDashboard.png
-  image_alt: ML model monitoring dashboard
-  summary: A deployable monitoring system that pairs low-latency FastAPI inference with visibility into model health and data drift.
+  image_alt: "Monitoring dashboard showing accuracy and F1 score over time"
+  image_style: top
+  hook: "The model shipped. How do I know it still works?"
+  summary: "I built a FastAPI service and a Streamlit dashboard to track what happens after deployment. I use a KS test to flag changes in the input data without waiting for labels. I track accuracy and F1 separately because drift alone can’t tell me whether predictions got worse."
   problem: Production ML models can degrade after deployment when input data shifts, performance changes, or teams lack a clear view into model health.
   system_built:
     - FastAPI inference service
@@ -114,17 +124,22 @@
     - MLOps
     - Discord webhooks
   evidence:
+    - label: Demo
+      field: demo_url
+      text: "Try the demo"
     - label: Repository
       url: https://github.com/isaachuahy/ml-monitor
+      text: "ML Model Monitoring on GitHub"
 
 - slug: cocoa-futures
-  title: Cocoa Futures Price Modelling
+  title: "Cocoa Futures Price Modelling"
   eyebrow: Completed project
   status: Completed
   group: past
   image: images/CocoaFuturesModel.png
-  image_alt: Cocoa futures price forecasting model output
-  summary: A comparative forecasting study that used scripted back-testing to select VARX for cocoa futures prediction.
+  image_alt: "Illustration of a cocoa pod and a rising price chart"
+  hook: "Three ways to forecast cocoa prices. Which one held up?"
+  summary: "I backtested ARIMA-GARCH, ETS and VARX on historical cocoa futures prices. VARX held up best in the comparison. The scripts let me rerun the evaluation when I changed a model."
   problem: Commodity price forecasting requires comparing model families under realistic back-testing instead of relying on a single preferred method.
   system_built:
     - Comparative forecasting workflow
@@ -145,15 +160,18 @@
   evidence:
     - label: Repository
       url: https://github.com/isaachuahy/STA457_Project
+      text: "Forecasting project on GitHub"
 
 - slug: visual-mae-synthesis
-  title: Synthesis on Transformers and Autoencoders
+  title: "Transformers and Autoencoders"
   eyebrow: Completed project
   status: Completed
   group: past
   image: images/VisualMAE_DISTILLED.png
-  image_alt: Visual masked autoencoder synthesis diagram
-  summary: A technical synthesis that uses masked autoencoders as an anchor for understanding modern representation-learning methods.
+  image_alt: "Diagram showing how a model reconstructs masked patches of an image"
+  image_style: contain
+  hook: "What can a model learn from the parts of an image it can’t see?"
+  summary: "I wrote this to understand how transformers and autoencoders fit together. I started with masked image reconstruction and followed the connections to visual classification and teacher–student training."
   problem: Modern representation learning methods are powerful but easy to treat as isolated techniques without understanding how their assumptions and training objectives differ.
   system_built:
     - Technical synthesis of transformer and autoencoder concepts
@@ -174,3 +192,4 @@
   evidence:
     - label: Writeup
       url: https://drive.google.com/file/d/1npLudNQBb09_m_AR_Rq6GgmhCyfMGtTr/view
+      text: "Read the writeup"
