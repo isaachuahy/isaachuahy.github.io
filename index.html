@@ -16,7 +16,6 @@ layout: default
   <div class="project-grid">
     {% for project in site.data.case_studies %}
     {% assign project_id = project.slug | slugify %}
-    {% assign project_links = site.data.project_links[project_id] %}
     <details class="project">
       <summary aria-labelledby="{{ project_id }}-title" aria-describedby="{{ project_id }}-hook">
         <img class="project-image{% if project.image_style %} {{ project.image_style }}{% endif %}" src="{{ project.image | relative_url }}" alt="{{ project.image_alt | escape }}"{% if forloop.index > 2 %} loading="lazy"{% endif %}>
@@ -30,13 +29,7 @@ layout: default
         <p>{{ project.summary | escape }}</p>
         <div class="project-links">
           {% for evidence in project.evidence %}
-          {% assign evidence_url = evidence.url %}
-          {% if evidence.field %}
-            {% assign evidence_url = project_links[evidence.field] | default: evidence_url %}
-          {% endif %}
-          {% if evidence_url %}
-          <a href="{{ evidence_url | escape }}">{{ evidence.text | escape }}</a>
-          {% endif %}
+          <a href="{{ evidence.url | escape }}">{{ evidence.text | escape }}</a>
           {% endfor %}
         </div>
       </div>

@@ -29,7 +29,6 @@
     - Backblaze B2
   evidence:
     - label: Repository
-      field: demo_url
       url: https://github.com/isaachuahy/david#demo
       text: "Watch the demo & view repository"
 
@@ -124,9 +123,6 @@
     - MLOps
     - Discord webhooks
   evidence:
-    - label: Demo
-      field: demo_url
-      text: "Try the demo"
     - label: Repository
       url: https://github.com/isaachuahy/ml-monitor
       text: "ML Model Monitoring on GitHub"

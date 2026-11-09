@@ -3,7 +3,6 @@ _site/
 .jekyll-cache/
 .jekyll-metadata
 .sass-cache/
-/_data/project_links.json
 
 # Local Bundler configuration and installed dependencies.
 .bundle/
